@@ -23,6 +23,7 @@ public class UserLoginController extends SuperClass {
 		super.doPost(request, response);
 		
 		String id = request.getParameter("id") ;
+		System.out.println(id);
 		String password = request.getParameter("password") ;
 		System.out.println(id + "/" + password);
 		
