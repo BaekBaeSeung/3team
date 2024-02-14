@@ -1,0 +1,5 @@
+# 구현해야 할 목록입니다.
+
+# User section
+
+UserInsert=com.dining.controller.User.UserInsertController
