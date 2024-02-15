@@ -4,3 +4,11 @@
 
 CustomerInsert=com.dining.controller.User.UserInsertController
 CustomerLogin=com.dining.controller.User.UserLoginController
+
+
+
+
+
+# WishList section
+
+WiList=com.dining.controller.User.WishListController
