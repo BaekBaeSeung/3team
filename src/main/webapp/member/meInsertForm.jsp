@@ -32,6 +32,7 @@
 			return ;
 		}
 		
+		
 		var url = '<%=notWithFormTag%>meIdCheck&id=' + id ;
 		window.open(url, 'idCheck', width=400,height=300) ;
 	}
@@ -168,6 +169,7 @@ function openZipSearch() {
 			<div class="container mt-3">
 				<h2>회원 가입</h2>
 				<p>신규 회원이 가입하는 페이지입니다.</p>
+				
 
 				<form action="<%=withFormTag%>" method="post" name="myform">
 					<input type="hidden" name="command" value="meInsert">
