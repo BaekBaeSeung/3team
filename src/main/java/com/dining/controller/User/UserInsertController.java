@@ -14,7 +14,8 @@ import com.dining.model.dao.UserDao;
 import com.shopping.model.dao.FillItemDao;*/
 
 public class UserInsertController extends SuperClass {
-	private final String PREFIX = "Customer/";
+	private final String PREFIX = "User/";
+	
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {

@@ -16,10 +16,10 @@
 <%-- 아이디가 'admin'이면 '관리자'입니다. --%>
 <%-- loginfo 속성을 사용하여 현재 로그인 상태를 확인할 수 있습니다. --%>
 <c:if test="${not empty sessionScope.loginfo}">
-	<c:if test="${sessionScope.loginfo.id == 'admin'}">
+	<c:if test="${sessionScope.loginfo.U_id == 'admin'}">
 		<c:set var="whologin" value="2"/>
 	</c:if>
-	<c:if test="${sessionScope.loginfo.id != 'admin'}">
+	<c:if test="${sessionScope.loginfo.U_id != 'admin'}">
 		<c:set var="whologin" value="1"/>
 	</c:if>	
 </c:if> 
@@ -62,5 +62,12 @@ String notWithFormTag = withFormTag + "?command=";
 </head>
 <body>
 
+	<c:if test="${not empty sessionScope.alertMessage}">
+		<div class="alert alert-danger alert-dismissible">
+  			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  			<strong>경고 메시지 : </strong>${sessionScope.alertMessage}
+		</div>
+	</c:if>	
+	<c:remove var="alertMessage" scope="session"/>
 </body>
 </html>
