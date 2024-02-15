@@ -13,6 +13,7 @@ public class Review {
 	private String Score;
 	private String Content;
 	private String Review_Date;
+	
 	public int getReview_no() {
 		return Review_no;
 	}
