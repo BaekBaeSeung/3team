@@ -9,7 +9,7 @@ import com.dining.model.bean.User;
 import com.dining.model.dao.UserDao;
 
 public class UserLoginController extends SuperClass {
-	private final String PREFIX = "user/";
+	private final String PREFIX = "User/";
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -23,7 +23,6 @@ public class UserLoginController extends SuperClass {
 		super.doPost(request, response);
 		
 		String id = request.getParameter("id") ;
-		System.out.println(id);
 		String password = request.getParameter("password") ;
 		System.out.println(id + "/" + password);
 		

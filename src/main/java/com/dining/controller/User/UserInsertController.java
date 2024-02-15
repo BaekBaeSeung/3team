@@ -14,7 +14,7 @@ import com.dining.model.dao.UserDao;
 import com.shopping.model.dao.FillItemDao;*/
 
 public class UserInsertController extends SuperClass {
-	private final String PREFIX = "member/";
+	private final String PREFIX = "Customer/";
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -32,7 +32,7 @@ public class UserInsertController extends SuperClass {
 		 * request.setAttribute("hobbyList", hobbyList);
 		 */
 		
-		super.gotoPage(PREFIX + "meInsertForm.jsp");
+		super.gotoPage(PREFIX + "CustomerInsertForm.jsp");
 	}
 	
 	@Override
