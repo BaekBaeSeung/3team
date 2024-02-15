@@ -21,6 +21,7 @@ public class User {
 	private String Email;
 	private String Address;
 	private String Address_Detail;
+	
 	public String getU_id() {
 		return U_id;
 	}
@@ -75,6 +76,7 @@ public class User {
 	public void setAddress_Detail(String address_Detail) {
 		Address_Detail = address_Detail;
 	}
+	
 	public User(String u_id, String password, String name, String nickname, String phone, String birth, String email,
 			String address, String address_Detail) {
 		super();
@@ -88,9 +90,11 @@ public class User {
 		Address = address;
 		Address_Detail = address_Detail;
 	}
+	
 	public User() {
 		super();
 	}
+	
 	@Override
 	public String toString() {
 		return "User [U_id=" + U_id + ", Password=" + Password + ", Name=" + Name + ", Nickname=" + Nickname

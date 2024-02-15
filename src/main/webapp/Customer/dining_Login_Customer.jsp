@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="./../common/common.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -141,11 +142,13 @@ footer {
 		<img src="./../image/light.png" alt="Star" id="star">
 	</div>
 	<a href="./main_page.html" class="logo text">미식 家</a>
+	<form action="<%=withFormTag%>" method="post">
+	<input type="hidden" name="command" value="CustomerLogin">
 	<div class="login-container">
-		<label for="userid">Userid :</label> <input type="text" id="userid"
-			name="userid" placeholder="아이디를 입력하세요"> <label for="password">Password
-			:</label> <input type="password" id="password" name="password"
-			placeholder="비밀번호를 입력하세요">
+		<label for="U_id">Userid :</label> <input type="text" id="U_id"
+			name="U_id" placeholder="아이디를 입력하세요" value="아이디"> <label for="Password">Password
+			:</label> <input type="password" id="Password" name="Password"
+			placeholder="비밀번호를 입력하세요" value="비밀번호">
 
 		<button type="submit" id="login">로그인</button>
 
@@ -154,6 +157,7 @@ footer {
 				class="join">회원가입</a>
 		</p>
 	</div>
+	</form>
 
 	<footer>
 		<div>&copy; 2024 다이닝 갈까? Corp.</div>

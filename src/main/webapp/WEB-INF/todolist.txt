@@ -3,3 +3,4 @@
 # User section
 
 CustomerInsert=com.dining.controller.User.UserInsertController
+CustomerLogin=com.dining.controller.User.UserLoginController

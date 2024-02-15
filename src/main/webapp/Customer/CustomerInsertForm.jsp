@@ -51,19 +51,19 @@
               <div class="invalid-feedback">
                 아이디을 입력해주세요.
               </div><br/>
-              <label for="password">비밀번호</label>
-              <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호" required><br/>
+              <label for="Password">비밀번호</label>
+              <input type="password" class="form-control" id="Password" name="Password" placeholder="비밀번호" value=""  required><br/>
               <label for="password">비밀번호 확인</label>
-              <input type="password" class="form-control" id="password2" placeholder="비밀번호 확인" required><br/>
+              <input type="password" class="form-control" id="Password2" placeholder="비밀번호 확인" value="" required><br/>
               <button class="btn btn-primary btn-sm btn-block" type="button" onclick="validatePassword()">비밀번호 확인</button><br/>
               <div class="invalid-feedback"><br/>
              	 비밀번호를 입력해주세요.			                       				           
               </div>
               <script>
 					function validatePassword() {
-					  var password1 = document.getElementById('password').value;
-					  var password2 = document.getElementById('password2').value;
-					  if (password1 === password2) {
+					  var Password1 = document.getElementById('Password').value;
+					  var Password2 = document.getElementById('Password2').value;
+					  if (Password1 === Password2) {
 					    alert('비밀번호가 일치합니다.');
 					  } else {
 					    alert('비밀번호가 일치하지 않습니다. 다시 확인해주세요.');
