@@ -27,7 +27,7 @@
 <%
 // appName : 애플리케이션 컨텍스트 이름(프로젝트 이름)
 String appName = request.getContextPath();
-String mappingName = "/Dining"; // in FrontController.java file
+String mappingName = "/dining"; // in FrontController.java file
 
 // 폼 태그에서 사용할 전역 변수
 String withFormTag = appName + mappingName;

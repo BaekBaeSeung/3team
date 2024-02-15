@@ -2,4 +2,4 @@
 
 # User section
 
-UserInsert=com.dining.controller.User.UserInsertController
+CustomerInsert=com.dining.controller.User.UserInsertController

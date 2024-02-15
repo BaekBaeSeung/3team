@@ -23,7 +23,7 @@ public class SuperClass implements SuperController {
 		// todoCommand : todolist.txt 파일에 명시된 커맨드 이름
 		// 커맨드 이름을 사용하여 웹 주소 형식의 FullName을 반환해 줍니다.
 		String appName = this.request.getContextPath() ; // in file common.jsp
-		String mappingName = "/Shopping" ; // url Pattern in file FrontController.java 
+		String mappingName = "/dining" ; // url Pattern in file FrontController.java 
 		
 		String fullAddress = appName + mappingName + "?command=" + todoCommand ;
 		System.out.println("요청 url 전체 경로명 :\n" + fullAddress); 
@@ -35,7 +35,8 @@ public class SuperClass implements SuperController {
 		// 미로그인시 적절한 메시지를 보여 주고, 로그인 페이지로 이동합니다.
 		String message = "로그인이 필요한 서비스입니다.";
 		this.setAlertMessage(message);
-		this.gotoPage("member/meLoginForm.jsp");
+			//로그인 셀렉트로 이동하게...
+		this.gotoPage("Login_select/dining_login_select.jsp");
 	}	
 	
 	@Override
