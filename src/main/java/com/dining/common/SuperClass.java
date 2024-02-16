@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dining.model.bean.Client;
 import com.dining.model.bean.User;
 
 // 하위 컨트롤러들이 공통적으로 사용하는 기능들을 여기에 명시하도록 합니다. 
@@ -17,6 +18,7 @@ public class SuperClass implements SuperController {
 	
 	// 로그인 여부를 파악하는 변수
 	protected User loginfo = null ;
+	protected Client clientinfo = null ;
 	
 
 	public String getUrlInformation(String todoCommand) {
@@ -45,6 +47,7 @@ public class SuperClass implements SuperController {
 		this.response = response ;
 		this.session = request.getSession() ;		
 		this.loginfo = (User)session.getAttribute("loginfo");		
+		this.clientinfo = (Client)session.getAttribute("clientinfo");		
 	}
 
 	@Override
@@ -52,7 +55,7 @@ public class SuperClass implements SuperController {
 		this.request = request ;
 		this.response = response ;
 		this.session = request.getSession() ;
-		this.loginfo = (User)session.getAttribute("loginfo");
+		this.clientinfo = (Client)session.getAttribute("clientinfo");
 	}	
 	
 
