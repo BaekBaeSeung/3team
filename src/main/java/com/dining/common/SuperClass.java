@@ -47,7 +47,7 @@ public class SuperClass implements SuperController {
 		this.response = response ;
 		this.session = request.getSession() ;		
 		this.loginfo = (User)session.getAttribute("loginfo");		
-		this.clientinfo = (Client)session.getAttribute("clientinfo");		
+			
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class SuperClass implements SuperController {
 		this.request = request ;
 		this.response = response ;
 		this.session = request.getSession() ;
-		this.clientinfo = (Client)session.getAttribute("clientinfo");
+		this.loginfo = (User)session.getAttribute("loginfo");
 	}	
 	
 
