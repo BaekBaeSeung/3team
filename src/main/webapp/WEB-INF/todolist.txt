@@ -4,6 +4,9 @@
 
 CustomerInsert=com.dining.controller.User.UserInsertController
 CustomerLogin=com.dining.controller.User.UserLoginController
+Customer_Update_DeleteForm=com.dining.controller.User.UserUpdateController
+
+
 
 
 
@@ -12,3 +15,4 @@ CustomerLogin=com.dining.controller.User.UserLoginController
 # WishList section
 
 #WiList=com.dining.controller.User.WishListController
+
