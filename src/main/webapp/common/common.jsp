@@ -15,14 +15,15 @@
 
 <%-- 아이디가 'admin'이면 '관리자'입니다. --%>
 <%-- loginfo 속성을 사용하여 현재 로그인 상태를 확인할 수 있습니다. --%>
-<c:if test="${not empty sessionScope.loginfo}">
+
+<%-- <c:if test="${not empty sessionScope.loginfo}">
 	<c:if test="${sessionScope.loginfo.U_id == 'admin'}">
 		<c:set var="whologin" value="2"/>
 	</c:if>
 	<c:if test="${sessionScope.loginfo.U_id != 'admin'}">
 		<c:set var="whologin" value="1"/>
 	</c:if>	
-</c:if> 
+</c:if>  --%>
 
 <%
 // appName : 애플리케이션 컨텍스트 이름(프로젝트 이름)

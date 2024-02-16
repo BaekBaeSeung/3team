@@ -142,8 +142,10 @@ footer {
 		<img src="./../image/light.png" alt="Star" id="star">
 	</div>
 	<a href="./main_page.html" class="logo text">미식 家</a>
+	
 	<form action="<%=withFormTag%>" method="post">
 	<input type="hidden" name="command" value="CustomerLogin">
+	
 	<div class="login-container">
 		<label for="U_id">Userid :</label> <input type="text" id="U_id"
 			name="U_id" placeholder="아이디를 입력하세요" value="아이디"> <label for="Password">Password

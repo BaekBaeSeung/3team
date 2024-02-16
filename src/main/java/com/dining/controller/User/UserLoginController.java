@@ -12,6 +12,7 @@ public class UserLoginController extends SuperClass {
 	private final String PREFIX = "Customer/";
 	
 	
+	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("로그인 페이지로 이동합니다.");
@@ -29,6 +30,7 @@ public class UserLoginController extends SuperClass {
 		
 		UserDao dao = new UserDao();
 		User bean = dao.getDataByIdAndPassword(U_id, Password);
+		System.out.println(bean);
 		
 		if(bean == null) { // 로그인 실패
 			String message = "로그인 정보가 잘못되었습니다.";
@@ -39,13 +41,14 @@ public class UserLoginController extends SuperClass {
 			// session 영역(scope)에 나의 로그인 정보를 저장(바인딩)합니다.
 			// loginfo 속성을 사용하여 현재 로그인 상태를 확인할 수 있습니다. 
 			super.session.setAttribute("loginfo", bean) ;
-			
+
 			// 로그인 성공 이후 상품 목록 페이지로 이동합니다.
 			/*여기에 로그인 성공시 어디로 갈건지 아마 메인페이지로 가도록 해야 할 듯.*/
 			//new ProductListController().doGet(request, response) ;
 			
 			/*========================= 메인페이지로 이동하게.... ====================================*/
-			//new UserInsertController().doGet(request, response) ;
+			super.gotoPage(PREFIX + "Customer_Update_DeleteForm.jsp");
+			
 		}
 	}
 }

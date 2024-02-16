@@ -4,3 +4,4 @@
 
 CustomerInsert=com.dining.controller.User.UserInsertController
 CustomerLogin=com.dining.controller.User.UserLoginController
+Customer_Update_DeleteForm=com.dining.controller.User.UserUpdateController
