@@ -151,7 +151,7 @@ footer {
 			name="U_id" placeholder="아이디를 입력하세요" value="아이디"> <label for="Password">Password
 			:</label> <input type="password" id="Password" name="Password"
 			placeholder="비밀번호를 입력하세요" value="비밀번호">
-
+		
 		<button type="submit" id="login">로그인</button>
 
 		<p>
