@@ -24,17 +24,17 @@ public class reservationListController extends SuperClass{
 		super.gotoPage(PREFIX + "reservationhistory.jsp");
 	}
 	
-	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
-		super.doGet(request, response);
-		
-		DiningDao dao = new DiningDao();
-		List<Dining> diningList = dao.getDiningList();
-		
-		request.setAttribute("dataList", dataList);
-		super.gotoPage(PREFIX + "boList.jsp");
-		ReservationDao Rdao = new ReservationDao();
-	}
+//	@Override
+//	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
+//		
+//		super.doGet(request, response);
+//		
+//		DiningDao dao = new DiningDao();
+//		List<Dining> diningList = dao.getDiningList();
+//		
+//		request.setAttribute("dataList", dataList);
+//		super.gotoPage(PREFIX + "boList.jsp");
+//		ReservationDao Rdao = new ReservationDao();
+//	}
 
 }
