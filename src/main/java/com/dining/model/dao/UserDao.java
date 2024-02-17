@@ -188,7 +188,7 @@ public class UserDao extends SuperDao {
 	}
 
 	public User getDataByIdAndPassword(String U_id, String Password) { // 아이디와 비밀번호를 이용하여 해당 회원이 존재하는지 확인합니다.
-		String sql = "select * from Customer ";
+		String sql = " select * from Customer ";
 		sql += " where U_id = ? and Password = ? ";
 
 		PreparedStatement pstmt = null;
@@ -200,6 +200,9 @@ public class UserDao extends SuperDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, U_id);
 			pstmt.setString(2, Password);
+			System.out.println(sql);
+			System.out.println(U_id);
+			System.out.println(Password);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				bean = this.resultSet2Bean(rs);
@@ -220,6 +223,7 @@ public class UserDao extends SuperDao {
 				e2.printStackTrace();
 			}
 		}
+		
 		return bean;
 	}
 
