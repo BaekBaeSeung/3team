@@ -51,7 +51,7 @@
               <input type="hidden" class="form-control" id="U_id" name="U_id" value="${sessionScope.loginfo.getU_id()}" required>
               <input type="text" class="form-control" id="fakeU_id" name="fakeU_id" value="${sessionScope.loginfo.getU_id()}" disabled="disabled" required>
               <div class="invalid-feedback">
-                아이디을 입력해주세요. 
+                아이디을 입력해주세요.  
               </div><br/>
               <label for="Password">비밀번호</label>
               <input type="password" class="form-control" id="Password" name="Password" placeholder="비밀번호" value="${sessionScope.loginfo.getPassword()}"  required><br/>
