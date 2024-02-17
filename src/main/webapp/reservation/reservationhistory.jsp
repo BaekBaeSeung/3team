@@ -18,11 +18,11 @@ span {
 		<div class="row">
 			<div class="col-sm-2"></div>
 			<div class="col-sm-8">
-				<h2>${sessionScope.loginfo.name}(${sessionScope.loginfo.U_id}) 님의
+				<h2>${sessionScope.loginfo.getName()}(${sessionScope.loginfo.getU_id()}) 님의
 					주문 내역</h2>
 				<table class="table table-striped">
 					<thead>
-						<tr>
+						<tr>	
 							<th>예약 번호</th>
 							<th>식당 이름</th>
 							<th>예약 일자</th>

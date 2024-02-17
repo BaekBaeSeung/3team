@@ -237,7 +237,7 @@ input[type="text"] {
 					style="max-width: 600px; overflow: hidden;">
 					<div class="image-slider" style="width: 100%; height: 100%;">
 						<button class="prev" onclick="prevSlide()">&#10094;</button>
-						<img src="/Dining01/image/삿뽀로13.PNG" alt="Image 1"
+						<img src=${bean.Category} alt="Image 1"
 							style="width: 100%; height: 100%;">
 						<button class="next" onclick="nextSlide()">&#10095;</button>
 					</div>
@@ -247,11 +247,11 @@ input[type="text"] {
 			<div class="column2- column2-2"
 				style="width: 32%; background-color: white;">
 				<div style="margin: 100px 30px 30px 30px;">
-				<form action="<%=withFormTag%>" method="get">
+					
 					<div>
 						<strong><span style="font-size: 35px; white-space: nowrap;" class="text">${bean.Name}</span></strong>
 						<span style="margin-left: 10px; font-size: 20px; color: darkgray;"
-							class="text">>${bean.Category}</span>
+							class="text">${bean.Category}</span>
 					</div>
 
 					<div class="detailform">
@@ -282,7 +282,7 @@ input[type="text"] {
 					<div class="text" style="white-space: nowrap;">${bean.Amenities}</div>
 					<div class="text" style="white-space: nowrap;">${bean.Amenities}</div>
 					<div class="text" style="white-space: nowrap;">${bean.Amenities}</div>
-					</form>
+					
 				</div>
 			</div>
 
@@ -292,7 +292,7 @@ input[type="text"] {
 					<!--                        Form 부분                            -->
 
 					<form action="<%=withFormTag%>" method="post" name="myform" onsubmit="return validateForm()">
-						<input type="hidden" name="command" value="GoReservation">
+						<input type="hidden" name="command" value="ReservationInsert">
 						<div class="group-container text">
 							<label for="inputDateField" class="text">예약 일시:</label> <input
 								type="text" id="inputDateField" name="inputDateField"
