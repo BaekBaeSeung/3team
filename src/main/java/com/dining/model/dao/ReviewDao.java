@@ -20,7 +20,7 @@ public class ReviewDao extends SuperDao {
 		super();
 	}
 
-
+	
 
 	// 리뷰 작성 메서드
     public int writeReview(Review review) {
