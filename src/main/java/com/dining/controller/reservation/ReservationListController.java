@@ -11,7 +11,7 @@ import com.dining.model.dao.DiningDao;
 import com.dining.model.dao.ReservationDao;
 
 
-public class reservationListController extends SuperClass{
+public class ReservationListController extends SuperClass{
 	private final String PREFIX = "reservation/";
 	
 	@Override

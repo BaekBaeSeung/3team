@@ -48,8 +48,13 @@
           <div class="row">
             <div class="col-md-6 mb-3">
 			<label for="name">아이디</label>
+			
               <input type="hidden" class="form-control" id="U_id" name="U_id" value="${sessionScope.loginfo.getU_id()}" required>
               <input type="text" class="form-control" id="fakeU_id" name="fakeU_id" value="${sessionScope.loginfo.getU_id()}" disabled="disabled" required>
+              
+             <%--    <input type="hidden" class="form-control" id="U_id" name="U_id" value="${bean.U_id}" required>
+              <input type="text" class="form-control" id="fakeU_id" name="fakeU_id" value="${bean.U_id}" disabled="disabled" required> --%>
+              
               <div class="invalid-feedback">
                 아이디을 입력해주세요.  
               </div><br/>

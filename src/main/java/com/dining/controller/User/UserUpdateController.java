@@ -11,6 +11,7 @@ import com.dining.model.dao.UserDao;
 public class UserUpdateController extends SuperClass {
 	private final String PREFIX = "Customer/";
 	private final String PREFIX01 = "reservation/";
+	private final String PREFIX02 = "mainpage/";
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -18,22 +19,18 @@ public class UserUpdateController extends SuperClass {
 		
 		// 현재 로그인 한 사람의 아이디(primary key)
 		
-		User Userid = (User)super.session.getAttribute("loginfo");
-		
-		String U_id = Userid.getU_id();
-		UserDao dao = new UserDao();
-		User bean = dao.getDataBean(U_id) ;
-//		String U_id = request.getParameter("U_id") ;
+//		User Userid = (User)super.session.getAttribute("loginfo");
 //		
+//		String U_id = Userid.getU_id();
 //		UserDao dao = new UserDao();
-//		User bean = dao.getDataBean(U_id) ; 
+//		User bean = dao.getDataBean(U_id) ;
+//
+//		
+//		System.out.println(bean);
+//		request.setAttribute("bean", bean);
 		
 		
-		System.out.println(bean);
-		request.setAttribute("bean", bean);
-		
-		
-		super.gotoPage(PREFIX + "Customer_Update_DeleteForm.jsp");
+		super.gotoPage(PREFIX + "dining_login_select.jsp");
 	}
 	
 	@Override
@@ -44,6 +41,7 @@ public class UserUpdateController extends SuperClass {
 		UserDao dao = new UserDao();
 		
 		User bean = dao.getDataByIdAndPassword(U_id, Password);
+		
 		System.out.println("post실행함.");
 		System.out.println(U_id + "/" + Password);
 		System.out.println(bean);
@@ -57,14 +55,14 @@ public class UserUpdateController extends SuperClass {
 			// session 영역(scope)에 나의 로그인 정보를 저장(바인딩)합니다.
 			// loginfo 속성을 사용하여 현재 로그인 상태를 확인할 수 있습니다. 
 			super.session.setAttribute("loginfo", bean) ;
-			
+			request.setAttribute("bean", bean);
 			// 로그인 성공 이후 상품 목록 페이지로 이동합니다.
 			/*여기에 로그인 성공시 어디로 갈건지 아마 메인페이지로 가도록 해야 할 듯.*/
 			//new ProductListController().doGet(request, response) ;
 			
 			/*========================= 메인페이지로 이동하게.... ====================================*/
 //			super.gotoPage(PREFIX + "Customer_Update_DeleteForm.jsp");
-			super.gotoPage(PREFIX01 + "relist.jsp");
+			super.gotoPage(PREFIX02 + "main1.jsp");
 			
 		}
 		
