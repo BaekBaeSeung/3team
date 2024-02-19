@@ -4,7 +4,7 @@ CustomerInsert=com.dining.controller.User.UserInsertController
 CustomerLogin_MainPage=com.dining.controller.User.UserLoginController
 CustomerLogin=com.dining.controller.User.UserUpdateController
 Customer_Update_DeleteForm=com.dining.controller.User.UserUpdateController
-#GotoMypage=com.dining.controller.User.GotoMypageController
+GotoMypage=com.dining.controller.User.GotoMypageController
 # Client section
 ClientInsert=com.dining.controller.client.ClientInsertController
 ClientLogin=com.dining.controller.client.ClientLoginController

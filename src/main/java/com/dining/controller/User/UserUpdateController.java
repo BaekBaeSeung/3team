@@ -29,7 +29,16 @@ public class UserUpdateController extends SuperClass {
 //		System.out.println(bean);
 //		request.setAttribute("bean", bean);
 		
-		
+		//로그인 했는데 로그인 시도하면 메시지 띄우는 모드..
+//		if(session.getAttribute("loginfo") != null) {
+//			super.setAlertMessage("이미 로그인 하셨습니다.");
+//			super.gotoPage(PREFIX02 + "main1.jsp");
+//			
+//		}else{
+//			
+//			
+//			super.gotoPage(PREFIX + "dining_login_select.jsp");
+//		}
 		super.gotoPage(PREFIX + "dining_login_select.jsp");
 	}
 	

@@ -35,10 +35,10 @@ public class SuperClass implements SuperController {
 
 	public void youNeededLogin() {
 		// 미로그인시 적절한 메시지를 보여 주고, 로그인 페이지로 이동합니다.
-		String message = "로그인이 필요한 서비스입니다.";
-		this.setAlertMessage(message);
+		
+		
 			//로그인 셀렉트로 이동하게...
-		this.gotoPage("Login_select/dining_login_select.jsp");
+		this.gotoPage("Dining/Customer/dining_login_select.jsp");
 	}	
 	
 	@Override
