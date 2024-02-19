@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="./../common/common.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -122,7 +123,7 @@ footer {
 		<img src="./../image/light.png" alt="Star" id="star">
 	</div>
 	<div class="login-container">
-		<a href="./dining_login_User.html" class="button-a-tag"> <input
+		<a href="<%=notWithFormTag%>CustomerLogin_MainPage" class="button-a-tag"> <input
 			type="button" id="UserSignUp" class="button-container" value="회원 로그인">
 		</a> <a href="./client_Join_1.html" class="button-a-tag"> <input
 			type="button" id="ClientSignUp" class="button-container"
