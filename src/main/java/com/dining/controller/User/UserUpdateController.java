@@ -10,6 +10,7 @@ import com.dining.model.dao.UserDao;
 
 public class UserUpdateController extends SuperClass {
 	private final String PREFIX = "Customer/";
+	private final String PREFIX01 = "reservation/";
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -62,7 +63,8 @@ public class UserUpdateController extends SuperClass {
 			//new ProductListController().doGet(request, response) ;
 			
 			/*========================= 메인페이지로 이동하게.... ====================================*/
-			super.gotoPage(PREFIX + "Customer_Update_DeleteForm.jsp");
+//			super.gotoPage(PREFIX + "Customer_Update_DeleteForm.jsp");
+			super.gotoPage(PREFIX01 + "relist.jsp");
 			
 		}
 		
