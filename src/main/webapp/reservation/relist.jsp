@@ -247,43 +247,49 @@ input[type="text"] {
 			<div class="column2- column2-2"
 				style="width: 32%; background-color: white;">
 				<div style="margin: 100px 30px 30px 30px;">
-				<form action="<%=withFormTag%>" method="get">
+				
+				<%-- <form action="<%=withFormTag%>" method="post" name="myform">
+				<input type="hidden" name="command" value="ReservationList"> --%>
+				
 					<div>
-						<strong><span style="font-size: 35px; white-space: nowrap;" class="text">${bean.Name}</span></strong>
+						<strong><span style="font-size: 35px; white-space: nowrap;" class="text"><%-- ${bean.Name} --%></span></strong>
 						<span style="margin-left: 10px; font-size: 20px; color: darkgray;"
-							class="text">>${bean.Category}</span>
+							class="text"><%-- ${bean.Category} --%></span>
 					</div>
 
 					<div class="detailform">
-						<label for="address"></label>${bean.Address}<input type="text" id="address"
+						<label for="address"></label><%-- ${bean.Address} --%><input type="text" id="address"
 							name="address" style="width: 300px;"><br>
 					</div>
 					<div class="detailform">
-						<label for="businessHours">${bean.Opentime}</label> <input type="text"
+						<label for="businessHours"><%-- ${bean.Opentime} --%></label> <input type="text"
 							id="businessHours" name="businessHours" style="width: 300px;"><br>
 					</div>
 					<div class="detailform">
-						<label for="breakTime">${bean.Break_time}</label> <input type="text"
+						<label for="breakTime"><%-- ${bean.Break_time} --%></label> <input type="text"
 							id="breakTime" name="breakTime" style="width: 300px;"><br>
 					</div>
 					<div class="detailform">
-						<label for="phoneNumber">${bean.Phone}</label> <input type="text"
+						<label for="phoneNumber"><%-- ${bean.Phone} --%></label> <input type="text"
 							id="phoneNumber" name="phoneNumber" style="width: 300px;"><br>
 					</div>
 					<div class="container mt-3">
 						<button type="button" class="btn btn-light"
 							data-bs-toggle="collapse" data-bs-target="#demo">매장소개를
 							확인해 보세요.</button>
-						<div id="demo" class="collapse">${bean.Content}</div>
+						<div id="demo" class="collapse"><%-- ${bean.Content} --%></div>
 					</div>
-					<div class="text" style="white-space: nowrap;">${bean.Amenities}</div>
-					<div class="text" style="white-space: nowrap;">${bean.Amenities}</div>
-					<div class="text" style="white-space: nowrap;">${bean.Amenities}</div>
-					<div class="text" style="white-space: nowrap;">${bean.Amenities}</div>
-					<div class="text" style="white-space: nowrap;">${bean.Amenities}</div>
-					<div class="text" style="white-space: nowrap;">${bean.Amenities}</div>
-					</form>
+					<div class="text" style="white-space: nowrap;"><%-- ${bean.Amenities} --%></div>
+					<div class="text" style="white-space: nowrap;"><%-- ${bean.Amenities} --%></div>
+					<div class="text" style="white-space: nowrap;"><%-- ${bean.Amenities} --%></div>
+					<div class="text" style="white-space: nowrap;"><%-- ${bean.Amenities} --%></div>
+					<div class="text" style="white-space: nowrap;"><%-- ${bean.Amenities} --%></div>
+					<div class="text" style="white-space: nowrap;"><%-- ${bean.Amenities} --%></div>
+					
+					<!-- </form> -->
+					
 				</div>
+				
 			</div>
 
 			<div class="column2- column2-3"
@@ -292,16 +298,20 @@ input[type="text"] {
 					<!--                        Form 부분                            -->
 
 					<form action="<%=withFormTag%>" method="post" name="myform" onsubmit="return validateForm()">
-						<input type="hidden" name="command" value="GoReservation">
+						<input type="hidden" name="command" value="ReservationInsert">
+						
+						<input type="hidden" name="U_id" id="U_id" value="bbs4861">
+						<input type="hidden" name="C_id" id="C_id" value="admin">
+						
 						<div class="group-container text">
 							<label for="inputDateField" class="text">예약 일시:</label> <input
-								type="text" id="inputDateField" name="inputDateField"
+								type="text" id="Reservation_Date" name="Reservation_Date"
 								class="text" style="border-bottom-style: solid;">
 						</div>
 						<!-- 인원수 증감 버튼과 입력 필드를 폼 안에 위치시킵니다. -->
 						<div class="group-container text">
 							<label for="inputpeople" class="text">인원 수</label> <input
-								type="text" id="inputpeople" name="inputpeople" class="text"
+								type="text" id="R_Capacity" name="R_Capacity" class="text"
 								value="1" style="width: 30px; border-bottom-style: solid; text-align: center;">
 						</div>
 						<div style="display: flex; align-items: center;">
@@ -319,7 +329,7 @@ input[type="text"] {
 									rows="4" placeholder="여기에 작성하세요."></textarea>
 							</div>
 						</div>
-						<button type="submit" class="btn btn-primary goreservation">예약하기</button>
+						<button type="submit" class="btn btn-primary">예약하기</button>
 					</form>
 				</div>
 			</div>
@@ -330,7 +340,7 @@ input[type="text"] {
 
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 	<script>
-		flatpickr("#inputDateField", {
+		flatpickr("#Reservation_Date", {
 			enableTime : true,
 			dateFormat : "Y-m-d H:i",
 		});
@@ -369,7 +379,7 @@ input[type="text"] {
 			if (currentPeople < 1) {
 				currentPeople = 1; // 최소 인원수는 1로 유지
 			}
-			document.getElementById("inputpeople").value = currentPeople;
+			document.getElementById("R_Capacity").value = currentPeople;
 		}
 	</script>
 

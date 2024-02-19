@@ -10,6 +10,7 @@ import com.dining.model.dao.UserDao;
 
 public class UserLoginController extends SuperClass {
 	private final String PREFIX = "Customer/";
+	private final String PREFIX01 = "reservation/";
 	
 	
 	
@@ -48,6 +49,7 @@ public class UserLoginController extends SuperClass {
 			
 			/*========================= 메인페이지로 이동하게.... ====================================*/
 			super.gotoPage(PREFIX + "Customer_Update_DeleteForm.jsp");
+			
 			
 		}
 	}

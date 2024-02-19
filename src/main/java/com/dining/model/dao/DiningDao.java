@@ -9,28 +9,25 @@ import java.util.List;
 import com.dining.model.bean.Dining;
 
 
-public class DiningDao extends SuperDao {
 
-	public List<Dining> getDiningList() {
-		String sql = "select * from dining " ;
-		PreparedStatement pstmt = null ; // 문장 객체
-		ResultSet rs = null ;
+public class DiningDao extends SuperDao {
+	
+	public Dining getDataBean(String id){ 
+		String sql = "select * from Dining " ;
+		sql += " where id = ?" ;
 		
-		List<Dining> dataList = new ArrayList<Dining>();
+		PreparedStatement pstmt = null ; 
+		ResultSet rs = null ;		
+		Dining bean = null ;
 		
 		super.conn = super.getConnection() ;
 		try {
-			pstmt = conn.prepareStatement(sql);
-			
+			pstmt = conn.prepareStatement(sql);	
+			pstmt.setString(1, id); 
 			rs = pstmt.executeQuery() ;
-			
-			// 요소들 읽어서 컬렉션에 담습니다.
-			while(rs.next()) {				
-				Dining bean = this.resultSet2Bean(rs) ;
-				
-				dataList.add(bean) ;
-			}
-			
+			if(rs.next()) {				
+				bean = this.resultSet2Bean(rs) ;
+			}			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -42,11 +39,49 @@ public class DiningDao extends SuperDao {
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
-		}
+		}	
+		System.out.println("id로 조회 결과 :");
+		System.out.println(bean); 
 		
-			
-		return dataList ;
+		return bean ;
 	}
+
+//	public List<Dining> getDiningList() {
+//		String sql = "select * from dining " ;
+//		PreparedStatement pstmt = null ; // 문장 객체
+//		ResultSet rs = null ;
+//		
+//		List<Dining> dataList = new ArrayList<Dining>();
+//		
+//		super.conn = super.getConnection() ;
+//		try {
+//			pstmt = conn.prepareStatement(sql);
+//			
+//			rs = pstmt.executeQuery() ;
+//			
+//			// 요소들 읽어서 컬렉션에 담습니다.
+//			while(rs.next()) {				
+//				Dining bean = this.resultSet2Bean(rs) ;
+//				
+//				dataList.add(bean) ;
+//			}
+//			
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}finally {
+//			try {
+//				if(rs != null) {rs.close();}
+//				if(pstmt != null) {pstmt.close();}
+//				super.closeConnection();
+//				
+//			} catch (Exception e2) {
+//				e2.printStackTrace();
+//			}
+//		}
+//		
+//			
+//		return dataList ;
+//	}
 
 	private Dining resultSet2Bean(ResultSet rs) {
 		try {
