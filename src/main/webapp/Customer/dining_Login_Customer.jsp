@@ -155,7 +155,7 @@ footer {
 		<button type="submit" id="login">로그인</button>
 
 		<p>
-			회원이 아니신가요? &nbsp;&nbsp;&nbsp; <a href="./User_Join_Form_By_choi.html"
+			회원이 아니신가요? &nbsp;&nbsp;&nbsp; <a href="/Dining/Customer/CustomerInsertForm.jsp"
 				class="join">회원가입</a>
 		</p>
 	</div>

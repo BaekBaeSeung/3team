@@ -8,10 +8,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>다이닝 갈까?🌙</title>
 
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-<style>
+<!-- <link rel="stylesheet" type="text/css" href="/Dining/Customer/dining_login_select.css"> -->
+<style type="text/css">
 body {
 	margin: 0;
 	font-family: Arial, sans-serif;
@@ -114,6 +112,7 @@ footer {
 	top: 100px;
 	left: 190px;
 }
+
 </style>
 </head>
 <body>

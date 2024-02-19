@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dining.model.bean.Client;
+import com.dining.model.bean.Dining;
 
 
 public class ClientDao extends SuperDao {
@@ -61,6 +62,43 @@ public class ClientDao extends SuperDao {
 	 * Birth DATE 유저 생년월일 NOT NULL N/A Email VARCHAR(30) 유저 이메일 NOT NULL N/A Address
 	 * VARCHAR(255) 유저 주소 NOT NULL N/A Address_Detail VARCHAR(128) 유저 상세주소 NULL N/A
 	 */
+	public Client getDataBean(String U_id) {
+		String sql = " select * from Customer ";
+		sql += " where U_id = ?";
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Client bean = null;
+
+		super.conn = super.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, U_id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				bean = this.resultSet2Bean(rs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				super.closeConnection();
+
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		System.out.println("D_no 데이터 조회 결과 :");
+		System.out.println(bean);
+
+		return bean;
+	}
 	public int insertData(Client bean) {
 		System.out.println(bean);
 
