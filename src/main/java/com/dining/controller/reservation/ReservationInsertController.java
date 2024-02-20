@@ -22,6 +22,7 @@ public class ReservationInsertController extends SuperClass {
 		int D_no = Integer.parseInt(request.getParameter("D_no"));
 		System.out.println(D_no);
 		Dining bean = dao.getDataBean(D_no);// 다오에서 가져오는거다
+		
 
 		request.setAttribute("bean", bean); // jsp 뿌리기위해서 바인딩하는거다
 		
