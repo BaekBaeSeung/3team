@@ -20,9 +20,11 @@ public class DiningDao extends SuperDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, D_no);
+			
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				bean = this.resultSet2Bean(rs);
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
