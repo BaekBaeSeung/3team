@@ -11,6 +11,7 @@ ClientInsert=com.dining.controller.client.ClientInsertController
 ClientLogin_MainPage=com.dining.controller.client.ClientLoginController
 ClientLogin=com.dining.controller.client.ClientLoginController
 ClientUpdate=com.dining.controller.client.ClientUpdateController
+#ClientLogout=com.dining.controller.client.clientLogoutController
 # Reservation section
 ReservationList=com.dining.controller.reservation.ReservationListController
 ReservationInsert=com.dining.controller.reservation.ReservationInsertController

@@ -49,6 +49,7 @@ public class ClientUpdateController extends SuperClass {
 		cnt = dao.updateData(bean) ;
 		
 		if(cnt == 1){ // 수정 성공
+			System.out.println("수정성공...");
 			new ClientInsertController().doGet(request, response);
 			
 		}else{ // 수정 실패

@@ -14,7 +14,7 @@ import com.dining.model.dao.UserDao;
 import com.shopping.model.dao.FillItemDao;*/
 
 public class UserInsertController extends SuperClass {
-	private final String PREFIX = "User/";
+	private final String PREFIX = "mainpage/";
 	
 	
 	@Override
@@ -33,7 +33,7 @@ public class UserInsertController extends SuperClass {
 		 * request.setAttribute("hobbyList", hobbyList);
 		 */
 		
-		super.gotoPage(PREFIX + "dining_login_select.jsp");
+		super.gotoPage(PREFIX + "main.jsp");
 	}
 	
 	@Override

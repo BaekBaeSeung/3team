@@ -11,7 +11,7 @@ import com.dining.model.dao.ClientDao;
 import com.shopping.model.dao.FillItemDao;*/
 
 public class ClientInsertController extends SuperClass{
-private final String PREFIX = "client/";
+private final String PREFIX = "mainpage/";
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -29,7 +29,7 @@ private final String PREFIX = "client/";
 		request.setAttribute("hobbyList", hobbyList);
 		*/
 		
-		super.gotoPage(PREFIX + "clientInsertForm.jsp");
+		super.gotoPage(PREFIX + "main.jsp");
 	}
 	
 	@Override
@@ -67,7 +67,7 @@ private final String PREFIX = "client/";
 		
 		if(cnt == 1){ // 인서트 성공
 			// 로그인 컨트롤러의 doPost() 메소드를 호출하면 가입과 동시에 로그인하는 효과를 봅니다.
-			new ClientLoginController().doPost(request, response); 
+			new ClientLoginController().doGet(request, response); 
 			
 		}else{ // 인서트 실패
 			new ClientInsertController().doGet(request, response); 
