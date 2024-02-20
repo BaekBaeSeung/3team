@@ -141,7 +141,7 @@
 					<img src="/Dining/image/뷰가좋은곳/광화문식당_석촌호수/광화문식당05.jpg"
 						class="product-thumb" alt="">
 					<!-- 여기에 다이닝상세정보 링크-->
-					<a href="#" class="card-btn">상세정보 보기</a>
+					<a href="<%=notWithFormTag%>ReservationInsert&D_no=8" class="card-btn">상세정보 보기</a>
 				</div>
 				<div class="product-info">
 					<h2 class="product-brand">광화문식당</h2>
@@ -165,7 +165,7 @@
 					<img src="/Dining/image/뷰가좋은곳/연남토마/연남토마02.jpg" class="product-thumb"
 						alt="">
 					<!-- 여기에 다이닝상세정보 링크-->
-					<a href="#" class="card-btn">상세정보 보기</a>
+					<a href="<%=notWithFormTag%>ReservationInsert&D_no=14" class="card-btn">상세정보 보기</a>
 				</div>
 				<div class="product-info">
 					<h2 class="product-brand">연남토마</h2>
@@ -213,7 +213,7 @@
 					<img src="/Dining/image/뷰가좋은곳/연남토마/연남토마04.jpg" class="product-thumb"
 						alt="">
 					<!-- 여기에 다이닝상세정보 링크-->
-					<a href="#" class="card-btn">상세정보 보기</a>
+					<a href="<%=notWithFormTag%>ReservationInsert&D_no=14" class="card-btn">상세정보 보기</a>
 				</div>
 				<div class="product-info">
 					<h2 class="product-brand">연남토마</h2>
@@ -261,7 +261,7 @@
 					<img src="/Dining/image/뷰가좋은곳/연남토마/연남토마06.jpg" class="product-thumb"
 						alt="">
 					<!-- 여기에 다이닝상세정보 링크-->
-					<a href="#" class="card-btn">상세정보 보기</a>
+					<a href="<%=notWithFormTag%>ReservationInsert&D_no=14" class="card-btn">상세정보 보기</a>
 				</div>
 				<div class="product-info">
 					<h2 class="product-brand">연남토마</h2>
@@ -293,11 +293,11 @@
 					<img src="/Dining/image/데이트/디라이프스타일치킨_롯데월드몰/디라이프스타일치킨02.PNG"
 						class="product-thumb" alt="">
 					<!-- 여기에 다이닝상세정보 링크-->
-					<a href="#" class="card-btn">상세정보 보기</a>
+					<a href="<%=notWithFormTag%>ReservationInsert&D_no=12" class="card-btn">상세정보 보기</a>
 				</div>
 				<div class="product-info">
-					<h2 class="product-brand">디라이프스타일키친</h2>
-					<p class="product-short-description">레스토랑</p>
+					<h2 class="product-brand">사철국화</h2>
+					<p class="product-short-description">퓨전 레스토랑</p>
 				</div>
 			</div>
 			<div class="product-card">
@@ -305,7 +305,7 @@
 					<img src="/Dining/image/데이트/스케쥴_청담/스케쥴청담09.jpg" class="product-thumb"
 						alt="">
 					<!-- 여기에 다이닝상세정보 링크-->
-					<a href="#" class="card-btn">상세정보 보기</a>
+					<a href="<%=notWithFormTag%>ReservationInsert&D_no=5" class="card-btn">상세정보 보기</a>
 				</div>
 				<div class="product-info">
 					<h2 class="product-brand">스케쥴청담</h2>
@@ -317,7 +317,7 @@
 					<img src="/Dining/image/데이트/촛불1978_남산/촛불1978_03.PNG"
 						class="product-thumb" alt="">
 					<!-- 여기에 다이닝상세정보 링크-->
-					<a href="#" class="card-btn">상세정보 보기</a>
+					<a href="<%=notWithFormTag%>ReservationInsert&D_no=6" class="card-btn">상세정보 보기</a>
 				</div>
 				<div class="product-info">
 					<h2 class="product-brand">남산촛불1978</h2>
@@ -329,7 +329,7 @@
 					<img src="/Dining/image/데이트/촛불1978_남산/촛불1978_04.PNG"
 						class="product-thumb" alt="">
 					<!-- 여기에 다이닝상세정보 링크-->
-					<a href="#" class="card-btn">상세정보 보기</a>
+					<a href="<%=notWithFormTag%>ReservationInsert&D_no=4" class="card-btn">상세정보 보기</a>
 				</div>
 				<div class="product-info">
 					<h2 class="product-brand">남산촛불1978</h2>
@@ -389,7 +389,7 @@
 					<img src="/Dining/image/데이트/스케쥴_청담/스케쥴청담08.jpg" class="product-thumb"
 						alt="">
 					<!-- 여기에 다이닝상세정보 링크-->
-					<a href="#" class="card-btn">상세정보 보기</a>
+					<a href="<%=notWithFormTag%>ReservationInsert&D_no=3" class="card-btn">상세정보 보기</a>
 				</div>
 				<div class="product-info">
 					<h2 class="product-brand">스케쥴청담</h2>
@@ -413,7 +413,7 @@
 					<img src="/Dining/image/데이트/스케쥴_청담/스케쥴청담01.jpg" class="product-thumb"
 						alt="">
 					<!-- 여기에 다이닝상세정보 링크-->
-					<a href="#" class="card-btn">상세정보 보기</a>
+					<a href="<%=notWithFormTag%>ReservationInsert&D_no=3" class="card-btn">상세정보 보기</a>
 				</div>
 				<div class="product-info">
 					<h2 class="product-brand">스케쥴청담</h2>
@@ -433,7 +433,7 @@
 					<img src="/Dining/image/혼술혼밥/미자식당_송파동/미자식당03.PNG"
 						class="product-thumb" alt="">
 					<!-- 여기에 다이닝상세정보 링크-->
-					<a href="#" class="card-btn">상세정보 보기</a>
+					<a href="<%=notWithFormTag%>ReservationInsert&D_no=3" class="card-btn">상세정보 보기</a>
 				</div>
 				<div class="product-info">
 					<h2 class="product-brand">미자식당</h2>
@@ -561,7 +561,7 @@
 					<img src="/Dining/image/연말연초모임/성수명당/성수명당02.jpg" class="product-thumb"
 						alt="">
 					<!-- 여기에 다이닝상세정보 링크-->
-					<a href="#" class="card-btn">상세정보 보기</a>
+					<a href="<%=notWithFormTag%>ReservationInsert&D_no=10" class="card-btn">상세정보 보기</a>
 				</div>
 				<div class="product-info">
 					<h2 class="product-brand">성수명당</h2>
@@ -633,7 +633,7 @@
 					<img src="/Dining/image/연말연초모임/퍼시픽%20스탠다드_가로수길/퍼시픽%20스탠다드_06.jpg"
 						class="product-thumb" alt="">
 					<!-- 여기에 다이닝상세정보 링크-->
-					<a href="#" class="card-btn">상세정보 보기</a>
+					<a href="<%=notWithFormTag%>ReservationInsert&D_no=11" class="card-btn">상세정보 보기</a>
 				</div>
 				<div class="product-info">
 					<h2 class="product-brand">퍼시픽 스탠다드</h2>
