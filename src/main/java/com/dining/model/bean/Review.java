@@ -2,7 +2,7 @@ package com.dining.model.bean;
 
 public class Review {
 	
-	private int Review_no ;
+	private int Review_no;
 	private String U_id;
 	private int D_no;
 	private String C_id;
@@ -13,6 +13,7 @@ public class Review {
 	private String Score;
 	private String Content;
 	private String Review_Date;
+	
 	public int getReview_no() {
 		return Review_no;
 	}

@@ -33,7 +33,7 @@ public class UserInsertController extends SuperClass {
 		 * request.setAttribute("hobbyList", hobbyList);
 		 */
 		
-		super.gotoPage(PREFIX + "CustomerInsertForm.jsp");
+		super.gotoPage(PREFIX + "dining_login_select.jsp");
 	}
 	
 	@Override

@@ -7,51 +7,91 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dining.model.bean.User;
+import com.dining.utility.MyUtility;
 
 public class UserDao extends SuperDao {
 
-	/*
-	 * public int updateData(User bean) { String sql =
-	 * " update CUSTOMER set U_id=?, password=?, Name=?, Nickname=?, Phone=?, Birth=?, Email=?, Address=? , Address_Detail=? "
-	 * ; sql += " where id = ?" ;
-	 * 
-	 * PreparedStatement pstmt = null ; int cnt = -9999999 ;
-	 * 
-	 * try { super.conn = super.getConnection() ; conn.setAutoCommit(false); pstmt =
-	 * conn.prepareStatement(sql) ;
-	 * 
-	 * 
-	 * pstmt.setString(1, bean.getU_id()); pstmt.setString(2, bean.getPassword());
-	 * pstmt.setString(3, bean.getName()); pstmt.setString(4, bean.getNickname());
-	 * pstmt.setString(5, bean.getPhone()); pstmt.setString(6, bean.getBirth());
-	 * pstmt.setString(7, bean.getEmail()); pstmt.setString(8, bean.getAddress());
-	 * pstmt.setString(9, bean.getAddress_Detail());
-	 * 
-	 * 
-	 * cnt = pstmt.executeUpdate() ; conn.commit(); } catch (Exception e) {
-	 * e.printStackTrace(); try { conn.rollback(); } catch (SQLException e1) {
-	 * e1.printStackTrace(); } } finally { try { if(pstmt != null) {pstmt.close();}
-	 * super.closeConnection(); } catch (Exception e2) { e2.printStackTrace(); } }
-	 * return cnt ; }
-	 */
+	public int updateData(User bean) {
+		String sql = " update CUSTOMER set U_id=?, Password=?, Name=?, Nickname=?, Phone=?, Birth=?, Email=?, Address=? , Address_Detail=? ";
+		sql += " where U_id = ?";
 
-	/*
-	 * public User getDataBean(String U_id) { String sql =
-	 * "select * from Customer "; sql += " where U_id = ?";
-	 * 
-	 * PreparedStatement pstmt = null; ResultSet rs = null; User bean = null;
-	 * 
-	 * super.conn = super.getConnection(); try { pstmt = conn.prepareStatement(sql);
-	 * pstmt.setString(1, U_id); rs = pstmt.executeQuery(); if (rs.next()) { bean =
-	 * this.resultSet2Bean(rs); } } catch (SQLException e) { e.printStackTrace(); }
-	 * finally { try { if (rs != null) { rs.close(); } if (pstmt != null) {
-	 * pstmt.close(); } super.closeConnection();
-	 * 
-	 * } catch (Exception e2) { e2.printStackTrace(); } }
-	 * System.out.println("U_id로 조회 결과 :"); System.out.println(bean);
-	 * 
-	 * return bean; }
-	 */
+		PreparedStatement pstmt = null;
+		int cnt = -9999999;
+
+		try {
+			super.conn = super.getConnection();
+			conn.setAutoCommit(false);
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, bean.getU_id());
+			pstmt.setString(2, bean.getPassword());
+			pstmt.setString(3, bean.getName());
+			pstmt.setString(4, bean.getNickname());
+			pstmt.setString(5, bean.getPhone());
+			pstmt.setString(6, bean.getBirth());
+			pstmt.setString(7, bean.getEmail());
+			pstmt.setString(8, bean.getAddress());
+			pstmt.setString(9, bean.getAddress_Detail());
+
+			cnt = pstmt.executeUpdate();
+			conn.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		} finally {
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return cnt;
+	}
+
+	public User getDataBean(String U_id) {
+		String sql = "select * from Customer ";
+		sql += " where U_id = ?";
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		User bean = null;
+
+		super.conn = super.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, U_id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				bean = this.resultSet2Bean(rs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				super.closeConnection();
+
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		System.out.println("U_id로 조회 결과 :");
+		System.out.println(bean);
+
+		return bean;
+	}
 
 	/*
 	 * Customer U_id(PK) VARCHAR(30) 유저 아이디(PK) NOT NULL 미로그인(0),일반 사용자(1), 관리자(2)
@@ -60,6 +100,46 @@ public class UserDao extends SuperDao {
 	 * Birth DATE 유저 생년월일 NOT NULL N/A Email VARCHAR(30) 유저 이메일 NOT NULL N/A Address
 	 * VARCHAR(255) 유저 주소 NOT NULL N/A Address_Detail VARCHAR(128) 유저 상세주소 NULL N/A
 	 */
+	public int deleteData(String U_id) {
+		int cnt = -1;
+		String sql = "";
+		User bean = this.getDataBean(U_id);
+		String remark = MyUtility.getCurrentTime() + bean.getName() + "(아이디 : " + U_id + ")님이 탈퇴를 하였습니다.";
+
+		PreparedStatement pstmt = null;
+		conn = super.getConnection();
+
+		try {
+			conn.setAutoCommit(false);
+
+			// step03 : 회원 테이블 데이터를 삭제합니다.
+			sql = " delete from Customer where U_id = ? ";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, U_id);
+			cnt = pstmt.executeUpdate();
+			if (pstmt != null) {
+				pstmt.close();
+			}
+
+			conn.commit();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		} finally {
+			try {
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return cnt;
+	}
+
 	public int insertData(User bean) {
 		System.out.println(bean);
 
@@ -108,7 +188,7 @@ public class UserDao extends SuperDao {
 	}
 
 	public User getDataByIdAndPassword(String U_id, String Password) { // 아이디와 비밀번호를 이용하여 해당 회원이 존재하는지 확인합니다.
-		String sql = "select * from Customer ";
+		String sql = " select * from Customer ";
 		sql += " where U_id = ? and Password = ? ";
 
 		PreparedStatement pstmt = null;
@@ -120,6 +200,9 @@ public class UserDao extends SuperDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, U_id);
 			pstmt.setString(2, Password);
+			System.out.println(sql);
+			System.out.println(U_id);
+			System.out.println(Password);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				bean = this.resultSet2Bean(rs);
@@ -140,6 +223,7 @@ public class UserDao extends SuperDao {
 				e2.printStackTrace();
 			}
 		}
+		
 		return bean;
 	}
 

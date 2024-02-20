@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="./../common/common.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,10 +8,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>다이닝 갈까?🌙</title>
 
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-<style>
+<!-- <link rel="stylesheet" type="text/css" href="/Dining/Customer/dining_login_select.css"> -->
+<style type="text/css">
 body {
 	margin: 0;
 	font-family: Arial, sans-serif;
@@ -113,6 +112,7 @@ footer {
 	top: 100px;
 	left: 190px;
 }
+
 </style>
 </head>
 <body>
@@ -122,7 +122,7 @@ footer {
 		<img src="./../image/light.png" alt="Star" id="star">
 	</div>
 	<div class="login-container">
-		<a href="./dining_login_User.html" class="button-a-tag"> <input
+		<a href="<%=notWithFormTag%>CustomerLogin_MainPage" class="button-a-tag"> <input
 			type="button" id="UserSignUp" class="button-container" value="회원 로그인">
 		</a> <a href="./client_Join_1.html" class="button-a-tag"> <input
 			type="button" id="ClientSignUp" class="button-container"

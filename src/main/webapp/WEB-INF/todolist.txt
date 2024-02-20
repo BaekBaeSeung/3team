@@ -1,6 +1,16 @@
 # 구현해야 할 목록입니다.
-
 # User section
-
 CustomerInsert=com.dining.controller.User.UserInsertController
-CustomerLogin=com.dining.controller.User.UserLoginController
+CustomerLogin_MainPage=com.dining.controller.User.UserLoginController
+CustomerLogin=com.dining.controller.User.UserUpdateController
+Customer_Update_DeleteForm=com.dining.controller.User.UserUpdateController
+GotoMypage=com.dining.controller.User.GotoMypageController
+# Client section
+ClientInsert=com.dining.controller.client.ClientInsertController
+ClientLogin=com.dining.controller.client.ClientLoginController
+# Reservation section
+ReservationList=com.dining.controller.reservation.ReservationListController
+ReservationInsert=com.dining.controller.reservation.ReservationInsertController
+# Dining section
+#DiningList=com.dining.controller.dining.DiningListController
+#DiningInsert=com.dining.controller.dining.DiningInsertController

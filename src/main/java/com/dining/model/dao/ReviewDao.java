@@ -14,7 +14,15 @@ public class ReviewDao extends SuperDao {
         this.conn = conn;
     }
 
-    // 리뷰 작성 메서드
+
+
+	public ReviewDao() {
+		super();
+	}
+
+	
+
+	// 리뷰 작성 메서드
     public int writeReview(Review review) {
         int result = 0;
         PreparedStatement pstmt = null;

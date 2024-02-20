@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dining.model.bean.Client;
 import com.dining.model.bean.User;
 
 // 하위 컨트롤러들이 공통적으로 사용하는 기능들을 여기에 명시하도록 합니다. 
@@ -17,6 +18,7 @@ public class SuperClass implements SuperController {
 	
 	// 로그인 여부를 파악하는 변수
 	protected User loginfo = null ;
+	protected Client clientinfo = null ;
 	
 
 	public String getUrlInformation(String todoCommand) {
@@ -33,10 +35,10 @@ public class SuperClass implements SuperController {
 
 	public void youNeededLogin() {
 		// 미로그인시 적절한 메시지를 보여 주고, 로그인 페이지로 이동합니다.
-		String message = "로그인이 필요한 서비스입니다.";
-		this.setAlertMessage(message);
+		
+		
 			//로그인 셀렉트로 이동하게...
-		this.gotoPage("Login_select/dining_login_select.jsp");
+		this.gotoPage("Dining/Customer/dining_login_select.jsp");
 	}	
 	
 	@Override
@@ -45,6 +47,7 @@ public class SuperClass implements SuperController {
 		this.response = response ;
 		this.session = request.getSession() ;		
 		this.loginfo = (User)session.getAttribute("loginfo");		
+			
 	}
 
 	@Override

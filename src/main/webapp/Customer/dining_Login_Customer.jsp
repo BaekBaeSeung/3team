@@ -142,18 +142,20 @@ footer {
 		<img src="./../image/light.png" alt="Star" id="star">
 	</div>
 	<a href="./main_page.html" class="logo text">미식 家</a>
+	
 	<form action="<%=withFormTag%>" method="post">
 	<input type="hidden" name="command" value="CustomerLogin">
+	
 	<div class="login-container">
 		<label for="U_id">Userid :</label> <input type="text" id="U_id"
-			name="U_id" placeholder="아이디를 입력하세요" value="아이디"> <label for="Password">Password
+			name="U_id" placeholder="아이디를 입력하세요" value="bbs4861"> <label for="Password">Password
 			:</label> <input type="password" id="Password" name="Password"
-			placeholder="비밀번호를 입력하세요" value="비밀번호">
-
+			placeholder="비밀번호를 입력하세요" value="baek4861">
+		
 		<button type="submit" id="login">로그인</button>
 
 		<p>
-			회원이 아니신가요? &nbsp;&nbsp;&nbsp; <a href="./User_Join_Form_By_choi.html"
+			회원이 아니신가요? &nbsp;&nbsp;&nbsp; <a href="/Dining/Customer/CustomerInsertForm.jsp"
 				class="join">회원가입</a>
 		</p>
 	</div>
