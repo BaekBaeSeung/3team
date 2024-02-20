@@ -48,8 +48,12 @@ body, html {
 	text-decoration: none;
 	font-size: 50px;
 	position: relative;
-	text-decoration: none;
 	white-space: nowrap;
+}
+
+.logo:hover {
+	text-decoration: none;
+	color: black;
 }
 
 .image-slider {
@@ -233,18 +237,24 @@ input[type="text"] {
 				style="width: 2%; background-color: white;"></div>
 			<div class="column2- column2-1"
 				style="width: 32%; background-color: white;">
-				<a class="removeUnderLine"
-					href="<%=notWithFormTag%>ReservationInsert&D_no=${bean.getD_no()}">
-					<div class="image-slider-container"
-						style="max-width: 600px; overflow: hidden;">
-						<div class="image-slider" style="width: 100%; height: 100%;">
-							<button class="prev" onclick="prevSlide()">&#10094;</button>
-							<img src="/Dining/image11/${bean.getImage01()}" alt="Image01"
-								style="width: 100%; height: 100%;">
-							<button class="next" onclick="nextSlide()">&#10095;</button>
-						</div>
+
+
+				<div class="image-slider-container"
+					style="max-width: 600px; overflow: hidden;">
+					<div class="image-slider"
+						style="width: 100%; height: 100%; display: flex;">
+						<button class="prev" onclick="prevSlide()">&#10094;</button>
+						<c:forEach var="image"
+							items="${bean.getImage01()},${bean.getImage02()},${bean.getImage03()},${bean.getImage04()}"
+							varStatus="loop">
+							<img src="/Dining/image01/${image}" alt="Image${loop.index + 1}"
+								style="max-width: 100%; height: 100%;">
+						</c:forEach>
+						<button class="next" onclick="nextSlide()">&#10095;</button>
 					</div>
-				</a>
+				</div>
+
+
 
 			</div>
 
@@ -252,63 +262,56 @@ input[type="text"] {
 				style="width: 32%; background-color: white;">
 				<div style="margin: 100px 30px 30px 30px;">
 
+					<div>
+						<strong><span
+							style="font-size: 35px; white-space: nowrap;" class="text">${bean.getName()}</span></strong>
+						<span style="margin-left: 10px; font-size: 20px; color: darkgray;"
+							class="text">${bean.getCategory()}</span>
+					</div>
+					<div class="detailform">
+						<label for="address">${bean.getStyle1()}${bean.getStyle2()}${bean.getStyle3()}${bean.getStyle4()}${bean.getStyle5()}
+							<br>
+					</div>
 
-					<a class="removeUnderLine"
-						href="<%=notWithFormTag%>ReservationInsert&D_no=${bean.getD_no()}"
-						style="text-decoration: none;">
-						<div>
-							<strong><span
-								style="font-size: 35px; white-space: nowrap;" class="text">${bean.getName()}</span></strong>
-							<span
-								style="margin-left: 10px; font-size: 20px; color: darkgray;"
-								class="text">${bean.getCategory()}</span>
-						</div>
-						<div class="detailform">
-							<label for="address">${bean.getStyle1()}${bean.getStyle2()}${bean.getStyle3()}${bean.getStyle4()}${bean.getStyle5()}
-								<br>
-						</div>
-
-						<div class="detailform">
-							<label for="address">주소: ${bean.getAddress()}</label><br>
-						</div>
-						<div class="detailform">
-							<label for="Opentime">open time: ${bean.getOpentime()}</label><br>
-						</div>
-						<div class="detailform">
-							<label for="Close_time">close time:
-								${bean.getClose_time()}</label><br>
-						</div>
-						<div class="detailform">
-							<label for="breakTime">break time:
-								${bean.getBreak_time()}</label><br>
-						</div>
-						<div class="detailform">
-							<label for="Holiday">정기 휴무: ${bean.getHoliday()}</label><br>
-						</div>
-						<div class="detailform">
-							<label for="Phone">Tel: ${bean.getPhone()}</label><br>
-						</div>
-						<div class="detailform">
-							<label for="Content">매장 소개글:<br>
-								${bean.getContent()}
-							</label><br>
-						</div> <%-- <div class="container mt-3">
+					<div class="detailform">
+						<label for="address">주소: ${bean.getAddress()}</label><br>
+					</div>
+					<div class="detailform">
+						<label for="Opentime">open time: ${bean.getOpentime()}</label><br>
+					</div>
+					<div class="detailform">
+						<label for="Close_time">close time:
+							${bean.getClose_time()}</label><br>
+					</div>
+					<div class="detailform">
+						<label for="breakTime">break time: ${bean.getBreak_time()}</label><br>
+					</div>
+					<div class="detailform">
+						<label for="Holiday">정기 휴무: ${bean.getHoliday()}</label><br>
+					</div>
+					<div class="detailform">
+						<label for="Phone">Tel: ${bean.getPhone()}</label><br>
+					</div>
+					<div class="detailform">
+						<label for="Content">매장 소개글:<br> ${bean.getContent()}
+						</label><br>
+					</div>
+					<%-- <div class="container mt-3">
 						<button type="button" class="btn btn-light"
 							data-bs-toggle="collapse" data-bs-target="#demo" style="margin-left:-15px">매장소개를 확인해 보세요.</button>
 						<div id="Content" class="collapse">${bean.getContent()}</div>
 					</div> --%>
-						<div class="detailform">
-							<label for="Notice">공지사항:<br> ${bean.getNotice()}
-							</label><br>
-						</div>
-						<div class="text" style="white-space: nowrap;">주차여부:
-							${bean.getParking_status()}</div>
-						<div class="text" style="white-space: nowrap;">편의시설:
-							${bean.getAmenities()}</div>
-						<div class="text" style="white-space: nowrap;">최대 수용
-							인원:${bean.getCapacity()}인</div>
+					<div class="detailform">
+						<label for="Notice">공지사항:<br> ${bean.getNotice()}
+						</label><br>
+					</div>
+					<div class="text" style="white-space: nowrap;">주차여부:
+						${bean.getParking_status()}</div>
+					<div class="text" style="white-space: nowrap;">편의시설:
+						${bean.getAmenities()}</div>
+					<div class="text" style="white-space: nowrap;">최대 수용
+						인원:${bean.getCapacity()}인</div>
 
-					</a>
 				</div>
 
 			</div>
@@ -354,15 +357,12 @@ input[type="text"] {
 						</div>
 						<button type="submit" class="btn btn-primary">예약하기</button>
 					</form>
-					<ul>
-						<li>${bean.getMenu()}</li>
-						
-					</ul>
 				</div>
 			</div>
 
 			<div class="column2-4" style="width: 2%; background-color: white;">
 			</div>
+		</div>
 	</section>
 
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -373,35 +373,48 @@ input[type="text"] {
 		});
 	</script>
 	<script>
-		<script>
-		var currentSlide = 0;
-		var slides = [ "/Dining/image11/${bean.getImage01()}",
-				"/Dining/image11/${bean.getImage02()}",
-				"/Dining/image11/${bean.getImage03()}",
-				"/Dining/image11/${bean.getImage04()}" ];
+	var currentSlide = 0;
+	var slides = [
+	    "/Dining/image01/${bean.getImage01()}",
+	    "/Dining/image01/${bean.getImage02()}",
+	    "/Dining/image01/${bean.getImage03()}",
+	    "/Dining/image01/${bean.getImage04()}"
+	];
 
-		function showSlide(index) {
-			var imgContainer = document
-					.querySelector('.image-slider-container');
-			if (index >= 0 && index < slides.length) {
-				imgContainer.innerHTML = `<img src="${slides[index]}" alt="Slide ${index+1}">`;
-				currentSlide = index;
-			}
+	function showSlide(index) {
+	    var imgContainer = document.querySelector('.image-slider-container');
+	    var img = imgContainer.querySelector('img');
+	    if (index >= 0 && index < slides.length) {
+	        img.src = slides[index];
+	        currentSlide = index;
+	    }
+	}
+
+	function prevSlide() {
+	    showSlide(currentSlide - 1);
+	}
+
+	function nextSlide() {
+	    showSlide(currentSlide + 1);
+	}
+
+
+		function toggleDropdown() {
+			document.getElementById("peopleDropdown").classList.toggle("show");
 		}
 
-		function prevSlide() {
-			showSlide((currentSlide - 1 + slides.length) % slides.length);
-		}
 
-		function nextSlide() {
-			showSlide((currentSlide + 1) % slides.length);
-		}
-	</script>
 
 	<!--인원수 조절-->
-	var currentPeople = 1; function changePeople(amount) { currentPeople +=
-	amount; if (currentPeople < 1) { currentPeople = 1; // 최소 인원수는 1로 유지 }
-	document.getElementById("R_Capacity").value = currentPeople; }
+		var currentPeople = 1;
+
+		function changePeople(amount) {
+			currentPeople += amount;
+			if (currentPeople < 1) {
+				currentPeople = 1; // 최소 인원수는 1로 유지
+			}
+			document.getElementById("R_Capacity").value = currentPeople;
+		}
 	</script>
 
 
