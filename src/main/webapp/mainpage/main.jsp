@@ -36,7 +36,12 @@
 						<li><a href="#">WISH_LIST</a></li>
 						<li><a href="#">DINIG_LIST</a></li>
 						<li><a href="#">RESERVATION</a></li>
+						<c:if test="${loginfo == null}">
 						<li><a href="<%=notWithFormTag%>CustomerLogin">LOGIN</a></li>
+						</c:if>
+						<c:if test="${loginfo != null}">
+						<li><a href="<%=notWithFormTag%>CustomerLogout">LOGOUT</a></li>
+						</c:if>
 					</ul>
 				</div>
 			</div>

@@ -71,7 +71,7 @@ public class UserUpdateController extends SuperClass {
 			
 			/*========================= 메인페이지로 이동하게.... ====================================*/
 //			super.gotoPage(PREFIX + "Customer_Update_DeleteForm.jsp");
-			super.gotoPage(PREFIX02 + "main1.jsp");
+			super.gotoPage(PREFIX02 + "main.jsp");
 			
 		}
 		
