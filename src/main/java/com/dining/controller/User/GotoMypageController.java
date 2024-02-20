@@ -20,7 +20,7 @@ public class GotoMypageController extends SuperClass{
 		User bean = dao.getDataBean(U_id) ;		
 		
 		if(session.getAttribute("loginfo") == null) {
-			super.setAlertMessage("잘못된 회원 정보입니다.");
+			//super.setAlertMessage("잘못된 회원 정보입니다.");
 			super.gotoPage(PREFIX + "dining_Login_Customer.jsp");
 			
 		}else{
