@@ -12,7 +12,7 @@ import com.dining.utility.MyUtility;
 public class UserDao extends SuperDao {
 
 	public int updateData(User bean) {
-		String sql = " update CUSTOMER set U_id=?, Password=?, Name=?, Nickname=?, Phone=?, Birth=?, Email=?, Address=? , Address_Detail=? ";
+		String sql = " update CUSTOMER set Password=?, Name=?, Nickname=?, Phone=?, Birth=?, Email=?, Address=? , Address_Detail=? ";
 		sql += " where U_id = ?";
 
 		PreparedStatement pstmt = null;
@@ -23,15 +23,16 @@ public class UserDao extends SuperDao {
 			conn.setAutoCommit(false);
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setString(1, bean.getU_id());
-			pstmt.setString(2, bean.getPassword());
-			pstmt.setString(3, bean.getName());
-			pstmt.setString(4, bean.getNickname());
-			pstmt.setString(5, bean.getPhone());
-			pstmt.setString(6, bean.getBirth());
-			pstmt.setString(7, bean.getEmail());
-			pstmt.setString(8, bean.getAddress());
-			pstmt.setString(9, bean.getAddress_Detail());
+			pstmt.setString(1, bean.getPassword());
+			pstmt.setString(2, bean.getName());
+			pstmt.setString(3, bean.getNickname());
+			pstmt.setString(4, bean.getPhone());
+			pstmt.setString(5, bean.getBirth());
+			pstmt.setString(6, bean.getEmail());
+			pstmt.setString(7, bean.getAddress());
+			pstmt.setString(8, bean.getAddress_Detail());
+			pstmt.setString(9, bean.getU_id());
+
 
 			cnt = pstmt.executeUpdate();
 			conn.commit();

@@ -11,6 +11,7 @@ import com.dining.model.dao.UserDao;
 public class UserLoginController extends SuperClass {
 	private final String PREFIX = "Customer/";
 	private final String PREFIX01 = "reservation/";
+	private final String PREFIX02 = "mainpage/";
 	
 	
 	
@@ -48,7 +49,7 @@ public class UserLoginController extends SuperClass {
 			//new ProductListController().doGet(request, response) ;
 			
 			/*========================= 메인페이지로 이동하게.... ====================================*/
-			super.gotoPage(PREFIX + "Customer_Update_DeleteForm.jsp");
+			super.gotoPage(PREFIX02 + "main.jsp");
 			
 			
 		}
