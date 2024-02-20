@@ -234,12 +234,12 @@ input[type="text"] {
 			<div class="column2- column2-1"
 				style="width: 32%; background-color: white;">
 				<a class="removeUnderLine"
-					href="<%=notWithFormTag%>ReservationInsert&D_no=2">
+					href="<%=notWithFormTag%>ReservationInsert&D_no=${bean.getD_no()}">
 					<div class="image-slider-container"
 						style="max-width: 600px; overflow: hidden;">
 						<div class="image-slider" style="width: 100%; height: 100%;">
 							<button class="prev" onclick="prevSlide()">&#10094;</button>
-							<img src="/Dining/image/${bean.getImage01()}" alt="Image01"
+							<img src="/Dining/image01/${bean.getImage01()}" alt="Image01"
 								style="width: 100%; height: 100%;">
 							<button class="next" onclick="nextSlide()">&#10095;</button>
 						</div>
@@ -254,7 +254,7 @@ input[type="text"] {
 
 
 					<a class="removeUnderLine"
-						href="<%=notWithFormTag%>ReservationInsert&D_no=2"
+						href="<%=notWithFormTag%>ReservationInsert&D_no=${bean.getD_no()}"
 						style="text-decoration: none;">
 						<div>
 							<strong><span
@@ -371,27 +371,27 @@ input[type="text"] {
 	<script>
 		var currentSlide = 0;
 		var slides = [
-		    "/Dining/image/${bean.getImage01()}",
-		    "/Dining/image/${bean.getImage02()}",
-		    "/Dining/image/${bean.getImage03()}",
-		    "/Dining/image/${bean.getImage04()}"
+		    "/Dining/image01/${bean.getImage01()}",
+		    "/Dining/image01/${bean.getImage02()}",
+		    "/Dining/image01/${bean.getImage03()}",
+		    "/Dining/image01/${bean.getImage04()}"
 		];
 
 			function showSlide(index) {
-			    var img = document.querySelector('.image-slider img');
+			    var img = document.querySelector('.image-slider-container');
 			    if (index >= 0 && index < slides.length) {
 			        img.src = slides[index];
 			        currentSlide = index;
 			    }
 			}
-
+/* 
 		function prevSlide() {
 			showSlide(currentSlide - 1);
 		}
 
 		function nextSlide() {
 			showSlide(currentSlide + 1);
-		}
+		} */
 
 		function toggleDropdown() {
 			document.getElementById("peopleDropdown").classList.toggle("show");
