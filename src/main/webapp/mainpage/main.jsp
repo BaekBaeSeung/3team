@@ -43,6 +43,7 @@
 						<li><a href="#">WISH_LIST</a></li>
 						<li><a href="#">DINIG_LIST</a></li>
 						<li><a href="#">RESERVATION</a></li>
+						
 						<c:choose>
 							<c:when test="${loginfo != null}">
 								<li><a href="<%=notWithFormTag%>CustomerLogout">LOGOUT</a></li>
@@ -50,10 +51,14 @@
 							<c:when test="${clientinfo != null}">
 								<li><a href="<%=notWithFormTag%>ClientLogout">LOGOUT</a></li>
 							</c:when>
-							<c:otherwise>
-								<li><a href="../Customer/dining_login_select.jsp">LOGIN</a></li>
-							</c:otherwise>
+							<c:when test="${loginfo == null}">
+								<li><a href="<%=notWithFormTag%>CustomerLogin">LOGIN</a></li>
+							</c:when>
+							<c:when test="${clientinfo == null}">
+								<li><a href="<%=notWithFormTag%>ClientLogin">LOGIN</a></li>
+							</c:when>
 						</c:choose>
+						
 					</ul>
 				</div>
 			</div>
