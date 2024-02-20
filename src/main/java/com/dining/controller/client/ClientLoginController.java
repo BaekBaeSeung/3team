@@ -12,7 +12,7 @@ import com.dining.model.dao.ClientDao;
 
 public class ClientLoginController extends SuperClass {
 	private final String PREFIX = "client/";
-	
+	private final String PREFIX01 = "mainpage/";
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -40,14 +40,14 @@ public class ClientLoginController extends SuperClass {
 		}else { // 로그인 성공
 			// session 영역(scope)에 나의 로그인 정보를 저장(바인딩)합니다.
 			// loginfo 속성을 사용하여 현재 로그인 상태를 확인할 수 있습니다. 
-			super.session.setAttribute("loginfo", bean) ;
+			super.session.setAttribute("clientinfo", bean) ;
 			
 			// 로그인 성공 이후 상품 목록 페이지로 이동합니다.
 			/*여기에 로그인 성공시 어디로 갈건지 아마 메인페이지로 가도록 해야 할 듯.*/
 			//new ProductListController().doGet(request, response) ;
 			
 			/*========================= 메인페이지로 이동하게.... ====================================*/
-			super.gotoPage(PREFIX + "clientInsertForm.jsp");
+			super.gotoPage(PREFIX01 + "main.jsp");
 		}
 	}
 }

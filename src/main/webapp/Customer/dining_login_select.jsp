@@ -124,7 +124,8 @@ footer {
 	<div class="login-container">
 		<a href="<%=notWithFormTag%>CustomerLogin_MainPage" class="button-a-tag"> <input
 			type="button" id="UserSignUp" class="button-container" value="회원 로그인">
-		</a> <a href="./client_Join_1.html" class="button-a-tag"> <input
+		</a> 
+		<a href="<%=notWithFormTag%>ClientLogin_MainPage" class="button-a-tag"> <input
 			type="button" id="ClientSignUp" class="button-container"
 			value="업체 로그인">
 		</a>

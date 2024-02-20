@@ -12,59 +12,52 @@ import com.dining.model.bean.Dining;
 
 public class ClientDao extends SuperDao {
 
-	/*
-	 * public int updateData(User bean) { String sql =
-	 * " update CUSTOMER set U_id=?, password=?, Name=?, Nickname=?, Phone=?, Birth=?, Email=?, Address=? , Address_Detail=? "
-	 * ; sql += " where id = ?" ;
-	 * 
-	 * PreparedStatement pstmt = null ; int cnt = -9999999 ;
-	 * 
-	 * try { super.conn = super.getConnection() ; conn.setAutoCommit(false); pstmt =
-	 * conn.prepareStatement(sql) ;
-	 * 
-	 * 
-	 * pstmt.setString(1, bean.getU_id()); pstmt.setString(2, bean.getPassword());
-	 * pstmt.setString(3, bean.getName()); pstmt.setString(4, bean.getNickname());
-	 * pstmt.setString(5, bean.getPhone()); pstmt.setString(6, bean.getBirth());
-	 * pstmt.setString(7, bean.getEmail()); pstmt.setString(8, bean.getAddress());
-	 * pstmt.setString(9, bean.getAddress_Detail());
-	 * 
-	 * 
-	 * cnt = pstmt.executeUpdate() ; conn.commit(); } catch (Exception e) {
-	 * e.printStackTrace(); try { conn.rollback(); } catch (SQLException e1) {
-	 * e1.printStackTrace(); } } finally { try { if(pstmt != null) {pstmt.close();}
-	 * super.closeConnection(); } catch (Exception e2) { e2.printStackTrace(); } }
-	 * return cnt ; }
-	 */
+	public int updateData(Client bean) {
+		String sql = " update Client set Password=?, Name=?, Gender=?, Email=?, Birthday=?, Telephone=? ";
+		sql += " where C_id = ?";
 
-	/*
-	 * public User getDataBean(String U_id) { String sql =
-	 * "select * from Customer "; sql += " where U_id = ?";
-	 * 
-	 * PreparedStatement pstmt = null; ResultSet rs = null; User bean = null;
-	 * 
-	 * super.conn = super.getConnection(); try { pstmt = conn.prepareStatement(sql);
-	 * pstmt.setString(1, U_id); rs = pstmt.executeQuery(); if (rs.next()) { bean =
-	 * this.resultSet2Bean(rs); } } catch (SQLException e) { e.printStackTrace(); }
-	 * finally { try { if (rs != null) { rs.close(); } if (pstmt != null) {
-	 * pstmt.close(); } super.closeConnection();
-	 * 
-	 * } catch (Exception e2) { e2.printStackTrace(); } }
-	 * System.out.println("U_id로 조회 결과 :"); System.out.println(bean);
-	 * 
-	 * return bean; }
-	 */
+		PreparedStatement pstmt = null;
+		int cnt = -9999999;
 
-	/*
-	 * Customer U_id(PK) VARCHAR(30) 유저 아이디(PK) NOT NULL 미로그인(0),일반 사용자(1), 관리자(2)
-	 * Password VARCHAR(30) 유저 비밀번호 NOT NULL N/A Name VARCHAR(30) 유저 이름 NOT NULL N/A
-	 * Nickname VARCHAR(30) 유저 닉네임 NOT NULL N/A Phone VARCHAR(30) 전화번호 NOT NULL N/A
-	 * Birth DATE 유저 생년월일 NOT NULL N/A Email VARCHAR(30) 유저 이메일 NOT NULL N/A Address
-	 * VARCHAR(255) 유저 주소 NOT NULL N/A Address_Detail VARCHAR(128) 유저 상세주소 NULL N/A
-	 */
-	public Client getDataBean(String U_id) {
-		String sql = " select * from Customer ";
-		sql += " where U_id = ?";
+		try {
+			super.conn = super.getConnection();
+			conn.setAutoCommit(false);
+			pstmt = conn.prepareStatement(sql);
+
+			
+			pstmt.setString(1, bean.getPassword());
+			pstmt.setString(2, bean.getName());
+			pstmt.setString(3, bean.getGender());
+			pstmt.setString(4, bean.getEmail());
+			pstmt.setString(5, bean.getBirthday());
+			pstmt.setString(6, bean.getTelephone());
+			pstmt.setString(7, bean.getC_id());
+			
+			cnt = pstmt.executeUpdate();
+			conn.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		} finally {
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return cnt;
+	}
+	
+	public Client getDataBean(String C_id) {
+		String sql = "select * from Client ";
+		sql += " where C_id = ?";
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -73,7 +66,7 @@ public class ClientDao extends SuperDao {
 		super.conn = super.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, U_id);
+			pstmt.setString(1, C_id);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				bean = this.resultSet2Bean(rs);
@@ -94,11 +87,20 @@ public class ClientDao extends SuperDao {
 				e2.printStackTrace();
 			}
 		}
-		System.out.println("D_no 데이터 조회 결과 :");
+		System.out.println("C_id로 조회 결과 :");
 		System.out.println(bean);
 
 		return bean;
 	}
+		
+	/*
+	 * Customer U_id(PK) VARCHAR(30) 유저 아이디(PK) NOT NULL 미로그인(0),일반 사용자(1), 관리자(2)
+	 * Password VARCHAR(30) 유저 비밀번호 NOT NULL N/A Name VARCHAR(30) 유저 이름 NOT NULL N/A
+	 * Nickname VARCHAR(30) 유저 닉네임 NOT NULL N/A Phone VARCHAR(30) 전화번호 NOT NULL N/A
+	 * Birth DATE 유저 생년월일 NOT NULL N/A Email VARCHAR(30) 유저 이메일 NOT NULL N/A Address
+	 * VARCHAR(255) 유저 주소 NOT NULL N/A Address_Detail VARCHAR(128) 유저 상세주소 NULL N/A
+	 */
+	
 	public int insertData(Client bean) {
 		System.out.println(bean);
 
