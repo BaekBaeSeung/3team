@@ -233,63 +233,84 @@ input[type="text"] {
 				style="width: 2%; background-color: white;"></div>
 			<div class="column2- column2-1"
 				style="width: 32%; background-color: white;">
-				<div class="image-slider-container"
-					style="max-width: 600px; overflow: hidden;">
-					<div class="image-slider" style="width: 100%; height: 100%;">
-						<button class="prev" onclick="prevSlide()">&#10094;</button>
-						<img src="/Dining01/image/삿뽀로13.PNG" alt="Image 1"
-							style="width: 100%; height: 100%;">
-						<button class="next" onclick="nextSlide()">&#10095;</button>
+				<a class="removeUnderLine"
+					href="<%=notWithFormTag%>ReservationInsert&D_no=2">
+					<div class="image-slider-container"
+						style="max-width: 600px; overflow: hidden;">
+						<div class="image-slider" style="width: 100%; height: 100%;">
+							<button class="prev" onclick="prevSlide()">&#10094;</button>
+							<img src="/Dining/image/${bean.getImage01()}" alt="Image01"
+								style="width: 100%; height: 100%;">
+							<button class="next" onclick="nextSlide()">&#10095;</button>
+						</div>
 					</div>
-				</div>
+				</a>
+
 			</div>
 
 			<div class="column2- column2-2"
 				style="width: 32%; background-color: white;">
 				<div style="margin: 100px 30px 30px 30px;">
-				
-				<%-- <form action="<%=withFormTag%>" method="post" name="myform">
-				<input type="hidden" name="command" value="ReservationList"> --%>
-				
-					<div>
-						<strong><span style="font-size: 35px; white-space: nowrap;" class="text"><%-- ${bean.Name} --%></span></strong>
-						<span style="margin-left: 10px; font-size: 20px; color: darkgray;"
-							class="text"><%-- ${bean.Category} --%></span>
-					</div>
 
-					<div class="detailform">
-						<label for="address"></label><%-- ${bean.Address} --%><input type="text" id="address"
-							name="address" style="width: 300px;"><br>
-					</div>
-					<div class="detailform">
-						<label for="businessHours"><%-- ${bean.Opentime} --%></label> <input type="text"
-							id="businessHours" name="businessHours" style="width: 300px;"><br>
-					</div>
-					<div class="detailform">
-						<label for="breakTime"><%-- ${bean.Break_time} --%></label> <input type="text"
-							id="breakTime" name="breakTime" style="width: 300px;"><br>
-					</div>
-					<div class="detailform">
-						<label for="phoneNumber"><%-- ${bean.Phone} --%></label> <input type="text"
-							id="phoneNumber" name="phoneNumber" style="width: 300px;"><br>
-					</div>
-					<div class="container mt-3">
+
+					<a class="removeUnderLine"
+						href="<%=notWithFormTag%>ReservationInsert&D_no=2"
+						style="text-decoration: none;">
+						<div>
+							<strong><span
+								style="font-size: 35px; white-space: nowrap;" class="text">${bean.getName()}</span></strong>
+							<span
+								style="margin-left: 10px; font-size: 20px; color: darkgray;"
+								class="text">${bean.getCategory()}</span>
+						</div>
+						<div class="detailform">
+							<label for="address">${bean.getStyle1()}${bean.getStyle2()}${bean.getStyle3()}${bean.getStyle4()}${bean.getStyle5()}
+								<br>
+						</div>
+
+						<div class="detailform">
+							<label for="address">주소: ${bean.getAddress()}</label><br>
+						</div>
+						<div class="detailform">
+							<label for="Opentime">open time: ${bean.getOpentime()}</label><br>
+						</div>
+						<div class="detailform">
+							<label for="Close_time">close time:
+								${bean.getClose_time()}</label><br>
+						</div>
+						<div class="detailform">
+							<label for="breakTime">break time:
+								${bean.getBreak_time()}</label><br>
+						</div>
+						<div class="detailform">
+							<label for="Holiday">정기 휴무: ${bean.getHoliday()}</label><br>
+						</div>
+						<div class="detailform">
+							<label for="Phone">Tel: ${bean.getPhone()}</label><br>
+						</div>
+						<div class="detailform">
+							<label for="Content">매장 소개글:<br>
+								${bean.getContent()}
+							</label><br>
+						</div> <%-- <div class="container mt-3">
 						<button type="button" class="btn btn-light"
-							data-bs-toggle="collapse" data-bs-target="#demo">매장소개를
-							확인해 보세요.</button>
-						<div id="demo" class="collapse"><%-- ${bean.Content} --%></div>
-					</div>
-					<div class="text" style="white-space: nowrap;"><%-- ${bean.Amenities} --%></div>
-					<div class="text" style="white-space: nowrap;"><%-- ${bean.Amenities} --%></div>
-					<div class="text" style="white-space: nowrap;"><%-- ${bean.Amenities} --%></div>
-					<div class="text" style="white-space: nowrap;"><%-- ${bean.Amenities} --%></div>
-					<div class="text" style="white-space: nowrap;"><%-- ${bean.Amenities} --%></div>
-					<div class="text" style="white-space: nowrap;"><%-- ${bean.Amenities} --%></div>
-					
-					<!-- </form> -->
-					
+							data-bs-toggle="collapse" data-bs-target="#demo" style="margin-left:-15px">매장소개를 확인해 보세요.</button>
+						<div id="Content" class="collapse">${bean.getContent()}</div>
+					</div> --%>
+						<div class="detailform">
+							<label for="Notice">공지사항:<br> ${bean.getNotice()}
+							</label><br>
+						</div>
+						<div class="text" style="white-space: nowrap;">주차여부:
+							${bean.getParking_status()}</div>
+						<div class="text" style="white-space: nowrap;">편의시설:
+							${bean.getAmenities()}</div>
+						<div class="text" style="white-space: nowrap;">최대 수용
+							인원:${bean.getCapacity()}인</div>
+
+					</a>
 				</div>
-				
+
 			</div>
 
 			<div class="column2- column2-3"
@@ -297,12 +318,13 @@ input[type="text"] {
 				<div style="margin: 100px 30px 30px 30px;">
 					<!--                        Form 부분                            -->
 
-					<form action="<%=withFormTag%>" method="post" name="myform" onsubmit="return validateForm()">
+					<form action="<%=withFormTag%>" method="post" name="myform"
+						onsubmit="return validateForm()">
 						<input type="hidden" name="command" value="ReservationInsert">
-						
+
 						<input type="hidden" name="U_id" id="U_id" value="bbs4861">
 						<input type="hidden" name="C_id" id="C_id" value="admin">
-						
+
 						<div class="group-container text">
 							<label for="inputDateField" class="text">예약 일시:</label> <input
 								type="text" id="Reservation_Date" name="Reservation_Date"
@@ -312,7 +334,8 @@ input[type="text"] {
 						<div class="group-container text">
 							<label for="inputpeople" class="text">인원 수</label> <input
 								type="text" id="R_Capacity" name="R_Capacity" class="text"
-								value="1" style="width: 30px; border-bottom-style: solid; text-align: center;">
+								value="1"
+								style="width: 30px; border-bottom-style: solid; text-align: center;">
 						</div>
 						<div style="display: flex; align-items: center;">
 							<button type="button" onclick="changePeople(-1)"
@@ -347,17 +370,20 @@ input[type="text"] {
 	</script>
 	<script>
 		var currentSlide = 0;
-		var slides = [ '/Dining01/image/삿뽀로13.PNG',
-				'/Dining01/image/삿뽀로13.PNG', '/Dining01/image/삿뽀로11.PNG',
-				'/Dining01/image/삿뽀로09.jpg' ]; // 이미지 파일 경로들
+		var slides = [
+		    "/Dining/image/${bean.getImage01()}",
+		    "/Dining/image/${bean.getImage02()}",
+		    "/Dining/image/${bean.getImage03()}",
+		    "/Dining/image/${bean.getImage04()}"
+		];
 
-		function showSlide(index) {
-			var img = document.querySelector('.image-slider img');
-			if (index >= 0 && index < slides.length) {
-				img.src = slides[index];
-				currentSlide = index;
+			function showSlide(index) {
+			    var img = document.querySelector('.image-slider img');
+			    if (index >= 0 && index < slides.length) {
+			        img.src = slides[index];
+			        currentSlide = index;
+			    }
 			}
-		}
 
 		function prevSlide() {
 			showSlide(currentSlide - 1);
@@ -371,7 +397,9 @@ input[type="text"] {
 			document.getElementById("peopleDropdown").classList.toggle("show");
 		}
 
-		//인원수 조절 
+
+
+	<!--인원수 조절-->
 		var currentPeople = 1;
 
 		function changePeople(amount) {
@@ -383,7 +411,7 @@ input[type="text"] {
 		}
 	</script>
 
-	<!--리뷰사진 슬라이드  -->
+
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
