@@ -239,7 +239,7 @@ input[type="text"] {
 						style="max-width: 600px; overflow: hidden;">
 						<div class="image-slider" style="width: 100%; height: 100%;">
 							<button class="prev" onclick="prevSlide()">&#10094;</button>
-							<img src="/Dining/image01/${bean.getImage01()}" alt="Image01"
+							<img src="/Dining/image11/${bean.getImage01()}" alt="Image01"
 								style="width: 100%; height: 100%;">
 							<button class="next" onclick="nextSlide()">&#10095;</button>
 						</div>
@@ -354,6 +354,10 @@ input[type="text"] {
 						</div>
 						<button type="submit" class="btn btn-primary">예약하기</button>
 					</form>
+					<ul>
+						<li>${bean.getMenu()}</li>
+						
+					</ul>
 				</div>
 			</div>
 
@@ -369,46 +373,35 @@ input[type="text"] {
 		});
 	</script>
 	<script>
+		<script>
 		var currentSlide = 0;
-		var slides = [
-		    "/Dining/image01/${bean.getImage01()}",
-		    "/Dining/image01/${bean.getImage02()}",
-		    "/Dining/image01/${bean.getImage03()}",
-		    "/Dining/image01/${bean.getImage04()}"
-		];
+		var slides = [ "/Dining/image11/${bean.getImage01()}",
+				"/Dining/image11/${bean.getImage02()}",
+				"/Dining/image11/${bean.getImage03()}",
+				"/Dining/image11/${bean.getImage04()}" ];
 
-			function showSlide(index) {
-			    var img = document.querySelector('.image-slider-container');
-			    if (index >= 0 && index < slides.length) {
-			        img.src = slides[index];
-			        currentSlide = index;
-			    }
+		function showSlide(index) {
+			var imgContainer = document
+					.querySelector('.image-slider-container');
+			if (index >= 0 && index < slides.length) {
+				imgContainer.innerHTML = `<img src="${slides[index]}" alt="Slide ${index+1}">`;
+				currentSlide = index;
 			}
-/* 
+		}
+
 		function prevSlide() {
-			showSlide(currentSlide - 1);
+			showSlide((currentSlide - 1 + slides.length) % slides.length);
 		}
 
 		function nextSlide() {
-			showSlide(currentSlide + 1);
-		} */
-
-		function toggleDropdown() {
-			document.getElementById("peopleDropdown").classList.toggle("show");
+			showSlide((currentSlide + 1) % slides.length);
 		}
-
-
+	</script>
 
 	<!--인원수 조절-->
-		var currentPeople = 1;
-
-		function changePeople(amount) {
-			currentPeople += amount;
-			if (currentPeople < 1) {
-				currentPeople = 1; // 최소 인원수는 1로 유지
-			}
-			document.getElementById("R_Capacity").value = currentPeople;
-		}
+	var currentPeople = 1; function changePeople(amount) { currentPeople +=
+	amount; if (currentPeople < 1) { currentPeople = 1; // 최소 인원수는 1로 유지 }
+	document.getElementById("R_Capacity").value = currentPeople; }
 	</script>
 
 
