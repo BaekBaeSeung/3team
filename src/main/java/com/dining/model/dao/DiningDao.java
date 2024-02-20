@@ -66,9 +66,9 @@ public class DiningDao extends SuperDao {
 			bean.setOpentime(rs.getString("Opentime"));
 			bean.setClose_time(rs.getString("Close_time"));
 			bean.setBreak_time(rs.getString("Break_time"));
-			bean.setBreak_time(rs.getString("Holiday"));
-			bean.setBreak_time(rs.getString("Phone"));
-			bean.setBreak_time(rs.getString("Parking_status"));
+			bean.setHoliday(rs.getString("Holiday"));
+			bean.setPhone(rs.getString("Phone"));
+			bean.setParking_status(rs.getString("Parking_status"));
 			bean.setAmenities(rs.getString("Amenities"));
 			bean.setCapacity(rs.getInt("Capacity"));
 			bean.setNotice(rs.getString("Notice"));
