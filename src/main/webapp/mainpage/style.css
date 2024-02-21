@@ -30,7 +30,7 @@ img {
 }
 p {
 	color: black;
-	font-size: 1.4rem;
+	font-size: 2.0rem;
 	margin-top: 5px;
 	line-height: 2.5rem;
 	font-weight: 300;
@@ -202,92 +202,6 @@ p {
 }
 /* End Header section */
 
-/* 메인첫번쨰 Section */
-/*#hero {
-	background-image: url(./../image/데이트/스케쥴_청담/스케쥴청담01.jpg);
-	background-size: cover;
-	background-position: top center;
-	position: relative;
-	z-index: 1;
-}
-#hero::after {
-	content: '';
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	background-color: black;
-	opacity: 0.7;
-	z-index: -1;
-}
-#hero .hero {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 0 50px;
-	justify-content: flex-start;
-}
-#hero h1 {
-	display: block;
-	width: fit-content;
-	font-size: 4rem;
-	position: relative;
-	color: transparent;
-	animation: text_reveal 0.5s ease forwards;
-	animation-delay: 1s;
-}
-#hero h1:nth-child(1) {
-	animation-delay: 1s;
-}
-#hero h1:nth-child(2) {
-	animation-delay: 2s;
-}
-#hero h1:nth-child(3) {
-	animation: text_reveal_name 0.5s ease forwards;
-	animation-delay: 3s;
-}
-#hero h1 span {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 0;
-	background-color: #485563;
-	animation: text_reveal_box 1s ease;
-	animation-delay: 0.5s;
-}
-#hero h1:nth-child(1) span {
-	animation-delay: 0.5s;
-}
-#hero h1:nth-child(2) span {
-	animation-delay: 1.5s;
-}
-#hero h1:nth-child(3) span {
-	animation-delay: 2.5s;
-}*/
-
-/* 여기까찌 Hero Section */
-
-/* 미식가 설명 Services Section */
-/*#services .services {
-	flex-direction: column;
-	text-align: center;
-	max-width: 1500px;
-	margin: 0 auto;
-	padding: 100px 0;
-}
-#services .service-top {
-	max-width: 500px;
-	margin: 0 auto;
-}
-#services .service-bottom {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-	margin-top: 50px;
-}*/
-/* 여기까지 Services Section */
 
 /*Projects section */
 #projects .projects {
@@ -765,7 +679,7 @@ p {
     max-width: 80%;
     z-index: 1;
 }
-.slider .list .item .content p:nth-child(1){
+.slider .list .item .content h3:nth-child(1){
     text-transform: uppercase;
     letter-spacing: 10px;
 }
@@ -784,7 +698,7 @@ p {
         opacity: 1;
     }
 }
-.slider .list .item.active p:nth-child(1),
+.slider .list .item.active h3:nth-child(1),
 .slider .list .item.active h2,
 .slider .list .item.active p:nth-child(3){
     transform: translateY(30px);
@@ -805,19 +719,19 @@ p {
     z-index: 100;
 }
 .arrows button{
-    background-color: #eee5;
+    background-color: white;
     border: none;
     font-family: monospace;
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
     font-size: x-large;
-    color: #eee;
+    color: black;
     transition: .5s;
 }
 .arrows button:hover{
-    background-color: #eee;
-    color: black;
+    background-color: red;
+    color: white;
 }
 .thumbnail{
     position: absolute;
@@ -865,4 +779,15 @@ p {
     .arrows{
         top: 10%;
     }
+}
+
+.content{
+	font-size: 15px;
+	color: floralwhite;
+}
+h3{
+	font-size: 25px;
+	color: floralwhite;
+	font-weight: bold;
+	
 }
