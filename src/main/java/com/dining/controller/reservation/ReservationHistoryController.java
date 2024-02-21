@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dining.common.SuperClass;
 import com.dining.model.bean.Reservation;
+import com.dining.model.bean.User;
 import com.dining.model.dao.ReservationDao;
 
 public class ReservationHistoryController extends SuperClass{
@@ -20,9 +21,9 @@ public class ReservationHistoryController extends SuperClass{
             return;
         }else {
             ReservationDao dao = new ReservationDao();
-
             List<Reservation> reservationList = dao.getHistory(super.loginfo.getU_id());
-            System.out.println("reservationList : " + reservationList);
+            System.out.println("getU_id : " +super.loginfo.getU_id());
+          
             if(reservationList.size()==0) {
                 String message = "예약 내역이 존재하지 않습니다. " ;
                 super.setAlertMessage(message); 
@@ -30,7 +31,6 @@ public class ReservationHistoryController extends SuperClass{
 
             }else {
                 request.setAttribute("reservationList",reservationList);
-                System.out.println(reservationList.size()+"aaa");
                 super.gotoPage("reservation/reservationhistory.jsp");
                 
             }
