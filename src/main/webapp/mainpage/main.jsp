@@ -31,20 +31,30 @@
 						<div class="bar"></div>
 					</div>
 					<ul>
-						<li><a href="/Dining/mainpage/main.jsp">HOME</a></li>
-						<!-- <li><a href="/Dining/Customer/Customer_Update_DeleteForm.jsp">MYPAGE</a></li> -->
-						<li><a href="<%=notWithFormTag%>GotoMypage">MYPAGE</a></li>
+						<li><a href="/Dining/mainpage/main.jsp">HOME</a></li>					
+							<c:if test="${loginfo != null}">
+								<li><a href="<%=notWithFormTag%>CustomerUpdate">MYPAGE</a></li>
+							</c:if>
+							<c:if test="${clientinfo != null}">
+								<li><a href="<%=notWithFormTag%>ClientUpdate">MYPAGE</a></li>
+							</c:if>
 						<li><a href="#">WISH_LIST</a></li>
 						<li><a href="#">DINIG_LIST</a></li>
 						<li><a href="#">RESERVATION</a></li>
-						
-						<c:if test="${loginfo == null}">
-						<!-- 로그인 페이지 만들어주면 여기에다가 로그인 페이지로 가는 커맨드 줘야함... -->
-							<li><a href="<%=notWithFormTag%>CustomerLogin">LOGIN</a></li>
-						</c:if>
-						<c:if test="${loginfo != null}">
-							<li><a href="<%=notWithFormTag%>CustomerLogout">LOGOUT</a></li>
-						</c:if>
+						<c:choose>
+							<c:when test="${loginfo != null}">
+								<li><a href="<%=notWithFormTag%>CustomerLogout">LOGOUT</a></li>
+							</c:when>
+							<c:when test="${clientinfo != null}">
+								<li><a href="<%=notWithFormTag%>ClientLogout">LOGOUT</a></li>
+							</c:when>
+							<c:when test="${loginfo == null}">
+								<li><a href="<%=notWithFormTag%>CustomerLogin">LOGIN</a></li>
+							</c:when>
+							<c:when test="${clientinfo == null}">
+								<li><a href="<%=notWithFormTag%>ClientLogin">LOGIN</a></li>
+							</c:when>
+						</c:choose>
 					</ul>
 				</div>
 			</div>
@@ -69,8 +79,8 @@
 				<div class="content">
 					<h3>미식家</h3>
 					<h2>#모임장소</h2>
-					<h3>연말연초 모임자리 걱정이시죠? 모임장소 더이상 여기저기 발품팔지 마세요.
-						20명 이상 예약가능! 모임 핫플레이스</h3>
+					<h3>연말연초 모임자리 걱정이시죠? 모임장소 더이상 여기저기 발품팔지 마세요. 20명 이상 예약가능! 모임
+						핫플레이스</h3>
 					<a href="#together" type="button" class="cta">#모임장소 보러가기</a>
 				</div>
 			</div>
@@ -88,8 +98,8 @@
 				<div class="content">
 					<h3>미식家</h3>
 					<h2>#혼술혼밥</h2>
-					<h3>혼자 외식하기 불편하신가요?1000만 혼밥시대 더이상 부끄러워 말아요~ 여기는 혼밥존! 같이 먹는게 오히려
-						이상하답니다</h3>
+					<h3>혼자 외식하기 불편하신가요?1000만 혼밥시대 더이상 부끄러워 말아요~ 여기는 혼밥존! 같이 먹는게
+						오히려 이상하답니다</h3>
 					<a href="#solo" type="button" class="cta">#혼밥장소 보러가기</a>
 				</div>
 			</div>
@@ -111,12 +121,12 @@
 			<div class="item">
 				<img src="/Dining/image/혼술메인.jpg">
 				<div class="content">#혼술혼밥</div>
-			</div>	
+			</div>
 			<!-- button arrows -->
 			<div class="arrows">
 				<button id="prev"><</button>
 				<button id="next">></button>
-			</div>		
+			</div>
 		</div>
 
 	</div>
@@ -139,7 +149,9 @@
 				<div class="project-item">
 					<div class="project-info">
 						<h1>경치가 좋은곳을 찾으시나요?</h1>
-						<p>경치가 좋아요 <br/>좋은 사람들과 함께하는 자리나 소개팅에 추천 좋은 경치와 함께 먹은 음식 더 맛있겠죠?</p>
+						<p>
+							경치가 좋아요 <br />좋은 사람들과 함께하는 자리나 소개팅에 추천 좋은 경치와 함께 먹은 음식 더 맛있겠죠?
+						</p>
 					</div>
 					<div class="project-img">
 						<img src="/Dining/image/뷰가좋은곳/광화문식당_석촌호수/광화문식당04.jpg" alt="img">
@@ -148,7 +160,9 @@
 				<div class="project-item">
 					<div class="project-info">
 						<h1>데이트 장소 고민이신가요?</h1>
-						<p>데이트하기 딱 좋아요!<br/>데이트 하려면 깔끔하고 분위기 좋고<br/>음식도 조금 고급스러우면 좋겠죠?</p>
+						<p>
+							데이트하기 딱 좋아요!<br />데이트 하려면 깔끔하고 분위기 좋고<br />음식도 조금 고급스러우면 좋겠죠?
+						</p>
 					</div>
 					<div class="project-img">
 						<img src="/Dining/image/데이트/스케쥴_청담/스케쥴청담02.jpg" alt="img">
@@ -157,7 +171,10 @@
 				<div class="project-item">
 					<div class="project-info">
 						<h1>연말연초 모임자리 걱정?</h1>
-						<p>모임장소 더이상 여기저기 발품팔지 마세요!<br/>많은 인원들 예약하기 힘드시죠?<br/> 20명 이상 예약가능! 모임 핫플레이스</p>
+						<p>
+							모임장소 더이상 여기저기 발품팔지 마세요!<br />많은 인원들 예약하기 힘드시죠?<br /> 20명 이상 예약가능!
+							모임 핫플레이스
+						</p>
 					</div>
 					<div class="project-img">
 						<img src="/Dining/image/연말연초모임/성수명당/성수명당02.jpg" alt="img">
@@ -165,8 +182,13 @@
 				</div>
 				<div class="project-item">
 					<div class="project-info">
-						<h1>반려동물 놔두고 <br/>외식하시 힘드시죠?</h1>
-						<p>외식은 하고 싶은데 집에 반려동물 혼자 놔둘수 없고<br/>그렇다고 식당에 데려갈수도 없고 고민이시죠?<br/>이제 꼭 끌어안고같이 드세요~</p>
+						<h1>
+							반려동물 놔두고 <br />외식하시 힘드시죠?
+						</h1>
+						<p>
+							외식은 하고 싶은데 집에 반려동물 혼자 놔둘수 없고<br />그렇다고 식당에 데려갈수도 없고 고민이시죠?<br />이제
+							꼭 끌어안고같이 드세요~
+						</p>
 					</div>
 					<div class="project-img">
 						<img src="/Dining/image/반려동물과함께/핑크문_홍대입구/핑크문02.PNG" alt="img">
@@ -175,7 +197,9 @@
 				<div class="project-item">
 					<div class="project-info">
 						<h1>혼자 외식하기 불편하신가요?</h1>
-						<p>1000만 혼밥시대 더이상 부끄러워 말아요~<br/> 여기는 혼밥존! <br/>같이 먹는게 오히려 이상하답니다!</p>
+						<p>
+							1000만 혼밥시대 더이상 부끄러워 말아요~<br /> 여기는 혼밥존! <br />같이 먹는게 오히려 이상하답니다!
+						</p>
 					</div>
 					<div class="project-img">
 						<img src="/Dining/image/혼술혼밥/사철국화/사철국화11.jpg" alt="img">

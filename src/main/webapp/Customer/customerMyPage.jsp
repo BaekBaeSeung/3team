@@ -184,12 +184,11 @@ p {
 									<button type="submit" class="btn btn-primary btn-block"
 										style="width: 200px;">정보수정 하기</button>
 								</div>
-								<div class="col-md-6 mb-3">
-									<button type="button"
-										onclick="location.href='./cumstomerDelete.jsp'"
+					<%-- 			<div class="col-md-6 mb-3">
+									<a href="<%=notWithFormTag%>CustomerDelete&U_id=${sessionScope.loginfo.GetU_id()}"
 										class="btn btn-danger"
 										style="width: 200px; margin-left: 100px;">회원탈퇴 하기</button>
-								</div>
+								</div> --%>
 							</div>
 						</div>
 				</form>

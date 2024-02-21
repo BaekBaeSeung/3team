@@ -11,14 +11,14 @@ import com.dining.model.dao.ClientDao;
 
 
 public class ClientLoginController extends SuperClass {
-	private final String PREFIX = "client/";
+	private final String PREFIX = "Customer/";
 	private final String PREFIX01 = "mainpage/";
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("로그인 페이지로 이동합니다.");
 		super.doGet(request, response);
-		super.gotoPage(PREFIX + "dining_login_client.jsp");
+		super.gotoPage(PREFIX + "login.jsp");
 	}
 	
 	@Override
@@ -35,7 +35,7 @@ public class ClientLoginController extends SuperClass {
 		if(bean == null) { // 로그인 실패
 			String message = "로그인 정보가 잘못되었습니다.";
 			super.setAlertMessage(message) ;
-			super.gotoPage(PREFIX + "dining_login_client.jsp");
+			super.gotoPage(PREFIX + "login.jsp");
 			
 		}else { // 로그인 성공
 			// session 영역(scope)에 나의 로그인 정보를 저장(바인딩)합니다.

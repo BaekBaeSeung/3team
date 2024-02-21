@@ -43,7 +43,7 @@ public class UserUpdateController extends SuperClass {
 		bean.setBirth(request.getParameter("Birth"));
 		bean.setEmail(request.getParameter("Email"));	
 		bean.setAddress(request.getParameter("Address"));
-		bean.setAddress(request.getParameter("Address_Detail"));
+		bean.setAddress_Detail(request.getParameter("Address_Detail"));
 		bean.setU_id(request.getParameter("U_id"));
 		
 		int cnt = -1;

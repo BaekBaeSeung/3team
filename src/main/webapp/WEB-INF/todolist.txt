@@ -5,13 +5,13 @@ CustomerLogin_MainPage=com.dining.controller.User.UserLoginController
 CustomerLogin=com.dining.controller.User.UserLoginController
 CustomerUpdate=com.dining.controller.User.UserUpdateController
 CustomerLogout=com.dining.controller.User.UserLogoutController
-GotoMypage=com.dining.controller.User.GotoMypageController
+#CustomerDelete=com.dining.controller.User.UserDeleteController
 # Client section
 ClientInsert=com.dining.controller.client.ClientInsertController
 ClientLogin_MainPage=com.dining.controller.client.ClientLoginController
 ClientLogin=com.dining.controller.client.ClientLoginController
 ClientUpdate=com.dining.controller.client.ClientUpdateController
-#ClientLogout=com.dining.controller.client.clientLogoutController
+ClientLogout=com.dining.controller.client.ClientLogoutController
 # Reservation section
 ReservationList=com.dining.controller.reservation.ReservationListController
 ReservationInsert=com.dining.controller.reservation.ReservationInsertController

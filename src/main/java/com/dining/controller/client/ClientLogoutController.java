@@ -1,4 +1,4 @@
-package com.dining.controller.User;
+package com.dining.controller.client;
 
 import java.util.Map;
 
@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dining.common.SuperClass;
 
-public class UserLogoutController extends SuperClass{
+public class ClientLogoutController extends SuperClass{
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		super.doGet(request, response);		
 		
-		if(super.loginfo != null) { // 누군가가 로그인 한 경우
+		if(super.clientinfo != null) { // 누군가가 로그인 한 경우
 			System.out.println("로그인");
 			// 로그인시 바인딩하였던 로그인 정보를 깨끗이 지웁니다.
 			super.session.invalidate(); // 세션 데이터들을 무효화

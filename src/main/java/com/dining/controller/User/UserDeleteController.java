@@ -7,7 +7,6 @@ import com.dining.common.SuperClass;
 import com.dining.model.dao.UserDao;
 
 public class UserDeleteController extends SuperClass{
-	 private final String PREFIX = "mainpage/";
 	 
 	@Override 	// 특정 회원이 탈퇴할 때 사용하는 컨트롤러입니다.
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -20,8 +19,7 @@ public class UserDeleteController extends SuperClass{
 		
 		// 세션 공간에 들어 있는 모든 정보를 무효화시킵니다.
 		super.session.invalidate();
-					/*메인 페이지로 보내야함.*/
-		//new MemberInsertController().doGet(request, response);
-		super.gotoPage(PREFIX + "main.jsp");
+					
+		new UserInsertController().doGet(request, response); 
 	}
 }
