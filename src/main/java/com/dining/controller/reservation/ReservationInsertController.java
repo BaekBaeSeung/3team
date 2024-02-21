@@ -43,11 +43,11 @@ public class ReservationInsertController extends SuperClass {
 		bean.setR_Capacity(Integer.parseInt(request.getParameter("R_Capacity")));
 
 		int cnt = dao.insertData(bean);
-
+		request.setAttribute("bean", bean);
 		if (cnt == 1) { // 인서트 성공
 			// 로그인 컨트롤러의 doPost() 메소드를 호출하면 가입과 동시에 로그인하는 효과를 봅니다.
 
-			super.gotoPage(PREFIX + "reservationhistory.jsp");
+			new ReservationHistoryController().doGet(request, response);
 
 		} else { // 인서트 실패
 			super.gotoPage(PREFIX + "relist.jsp");

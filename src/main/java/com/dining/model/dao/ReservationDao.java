@@ -300,5 +300,53 @@ public class ReservationDao extends SuperDao {
 		}
 	}
 
+	public List<Reservation> getHistory(String U_id) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null ;		
+		String sql = " select * from Reservation where U_id = ? order by reservation_date desc " ;	
+		System.out.println("Reservation");
+		List<Reservation> dataList = new ArrayList<Reservation>() ;
+		
+		try {
+			conn = super.getConnection() ;
+			pstmt = conn.prepareStatement(sql) ;
+			pstmt.setString(1, U_id) ;
+			rs = pstmt.executeQuery() ;
+			
+			while(rs.next()) {
+				dataList.add(this.makeReservationBean(rs)) ;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null){rs.close();}
+				if(pstmt!=null){pstmt.close();}
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+		return dataList;
+	}
+
+
+	private Reservation makeReservationBean(ResultSet rs) {
+		Reservation bean = new Reservation();
+
+	        try {
+	            bean.setReservation_no(rs.getInt("reservation_no"));
+	            bean.setReservation_Date(String.valueOf(rs.getDate("reservation_date")));
+	            bean.setR_Capacity(rs.getInt("r_capacity"));
+
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        return bean;
+	}
+
+
 
 }

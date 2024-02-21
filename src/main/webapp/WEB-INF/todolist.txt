@@ -15,6 +15,7 @@ ClientLogout=com.dining.controller.client.ClientLogoutController
 # Reservation section
 ReservationList=com.dining.controller.reservation.ReservationListController
 ReservationInsert=com.dining.controller.reservation.ReservationInsertController
+ReservationHistory=com.dining.controller.reservation.ReservationHistoryController
 # Dining section
 #DiningList=com.dining.controller.dining.DiningListController
 #DiningInsert=com.dining.controller.dining.DiningInsertController
