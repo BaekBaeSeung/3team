@@ -11,6 +11,9 @@
 span {
 	font-size: 1.2rem;
 }
+.text{
+text-align: center;
+}
 </style>
 </head>
 <body>
@@ -18,24 +21,25 @@ span {
 		<div class="row">
 			<div class="col-sm-2"></div>
 			<div class="col-sm-8">
-				<h2><%-- ${sessionScope.loginfo.name}(${sessionScope.loginfo.U_id}) --%> 님의
-					주문 내역</h2>
+				<h2>[ ${bean.getU_id()} ]`s Dining List.</h2>
 				<table class="table table-striped">
 					<thead>
-						<tr>
+						<tr class="text">
+							<th>No.</th>
 							<th>예약 번호</th>
-							<th>식당 이름</th>
 							<th>예약 일자</th>
 							<th>인원 수</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="bean" items="<%-- ${requestScope.orderList} --%>">
-							<tr>
-								<td><%-- ${bean.Reservation_no} --%></td>
-								<td><%-- ${bean.Name} --%></td>
-								<td><%-- ${bean.Reservation_Date} --%></td>
-								<td><%-- ${bean.R_Capacity} --%></td>
+						<!--forEach 태그의 속성은 반복 작업을 수행할 때 사용  -->
+						<c:forEach var="bean" items="${requestScope.reservationList}"
+							varStatus="loop">
+							<tr class="text">
+								<td>${loop.index + 1}</td>
+								<td>${bean.getReservation_no()}</td>
+								<td>${bean.getReservation_Date()}</td>
+								<td>${bean.getR_Capacity()}</td>
 							</tr>
 						</c:forEach>
 					</tbody>

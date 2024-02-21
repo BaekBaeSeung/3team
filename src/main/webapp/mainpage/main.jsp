@@ -40,7 +40,7 @@
 							</c:if>
 						<li><a href="#">WISH_LIST</a></li>
 						<li><a href="#">DINIG_LIST</a></li>
-						<li><a href="#">RESERVATION</a></li>
+						<li><a href="<%=notWithFormTag%>ReservationInsert">RESERVATION</a></li>
 						<c:choose>
 							<c:when test="${loginfo != null}">
 								<li><a href="<%=notWithFormTag%>CustomerLogout">LOGOUT</a></li>
