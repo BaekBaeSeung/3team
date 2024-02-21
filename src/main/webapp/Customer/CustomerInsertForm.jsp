@@ -35,9 +35,9 @@
                     }
 
                     $("#zip_code").val(data.zonecode);
-                    $("#address").val(addr); /* 메인 주소 입력 */
-                    $("#address2").val("");
-                    $("#address2").focus(); /* 상세 주소 입력란에 포커스 주기 */
+                    $("#Address").val(addr); /* 메인 주소 입력 */
+                    $("#Address_Detail").val("");
+                    $("#Address_Detail").focus(); /* 상세 주소 입력란에 포커스 주기 */
                 }
             }).open();
         }
@@ -136,7 +136,7 @@ body {
 
 					<div class="mb-3">
 						<label for="Address">주소</label> <input type="text"
-							class="form-control" id="Address" name="Address"
+							class="form-control" id="Address" name="Address" value=""
 							onclick="openZipSearch();" placeholder="주소를 입력해주세요" required>
 						<div class="invalid-feedback">주소를 입력해주세요.</div>
 					</div>

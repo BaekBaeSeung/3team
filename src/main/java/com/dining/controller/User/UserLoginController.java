@@ -10,8 +10,7 @@ import com.dining.model.dao.UserDao;
 
 public class UserLoginController extends SuperClass {
 	private final String PREFIX = "Customer/";
-	private final String PREFIX01 = "reservation/";
-	private final String PREFIX02 = "mainpage/";
+	private final String PREFIX01 = "mainpage/";
 	
 	
 	
@@ -19,7 +18,7 @@ public class UserLoginController extends SuperClass {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("로그인 페이지로 이동합니다.");
 		super.doGet(request, response);
-		super.gotoPage(PREFIX + "dining_Login_Customer.jsp");
+		super.gotoPage(PREFIX + "login.jsp");
 	}
 	
 	@Override
@@ -37,7 +36,7 @@ public class UserLoginController extends SuperClass {
 		if(bean == null) { // 로그인 실패
 			String message = "로그인 정보가 잘못되었습니다.";
 			super.setAlertMessage(message) ;
-			super.gotoPage(PREFIX + "dining_Login_Customer.jsp");
+			super.gotoPage(PREFIX + "login.jsp");
 			
 		}else { // 로그인 성공
 			// session 영역(scope)에 나의 로그인 정보를 저장(바인딩)합니다.
@@ -49,7 +48,7 @@ public class UserLoginController extends SuperClass {
 			//new ProductListController().doGet(request, response) ;
 			
 			/*========================= 메인페이지로 이동하게.... ====================================*/
-			super.gotoPage(PREFIX02 + "main.jsp");
+			super.gotoPage(PREFIX01 + "main.jsp");
 			
 			
 		}

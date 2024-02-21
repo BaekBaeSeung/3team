@@ -107,7 +107,7 @@ p {
 
 <body>
 	<div class="input-form">
-		<h4>My page</h4>
+		<h4>Client My page</h4>
 		<p>개인 정보 수정 및 예약 확인</p>
 		<ul class="nav nav-tabs" role="tablist">
 			<li class="nav-item"><a class="nav-link active"
