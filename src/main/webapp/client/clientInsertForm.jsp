@@ -187,7 +187,7 @@ h4 {
 			<div class="submit">
 				<button type="submit" class="btn btn-primary">최종 가입하기</button>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<button type="button" onclick="cancel()" class="btn btn-secondary">취소</button>
+				<button type="button" onclick="dining()" class="btn btn-secondary">다이닝 등록하러 가기</button>
 			</div>
 		</form>
 	</div>
@@ -212,9 +212,8 @@ h4 {
          });
       }, false);
 
-      function cancel() {
-         // 취소 버튼 클릭 시 작업 수행
-         alert('가입이 취소되었습니다.');
+      function dining() {
+    	  gotoPage("./diningInsertForm.jsp");
       }
    </script>
 </body>

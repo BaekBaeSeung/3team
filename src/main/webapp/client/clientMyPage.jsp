@@ -16,8 +16,9 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 <script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>	
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#Birthday').datepicker({dateFormat:"yy/mm/dd"});
@@ -109,14 +110,7 @@ p {
 	<div class="input-form">
 		<h4>Client My page</h4>
 		<p>개인 정보 수정 및 예약 확인</p>
-		<ul class="nav nav-tabs" role="tablist">
-			<li class="nav-item"><a class="nav-link active"
-				data-bs-toggle="tab" href="#menu1">회원정보 수정</a></li>
-			<li class="nav-item"><a class="nav-link" data-bs-toggle="tab"
-				href="#menu2">예약내역 확인</a></li>
-		</ul>
 		<div class="tab-content">
-			<div id="menu1" class="container tab-pane active">
 				<br>
 				<form class="validation-form" action="<%=withFormTag%>"
 					method="post" novalidate>
@@ -141,12 +135,12 @@ p {
 						<div class="invalid-feedback">이름을 입력해주세요.</div>
 					</div>
 					<div class="Gender">
-						<label for="Gender">Gender</label><br />
-						<input type="hidden" id="Gender"
-							name="Gender" value="${sessionScope.clientinfo.getC_id()}">
-						<input
-							class="form-control" type="text" id="fakeGender" name="fakeGender"
-							value="${sessionScope.clientinfo.getGender()}" disabled="disabled">
+						<label for="Gender">Gender</label><br /> <input type="hidden"
+							id="Gender" name="Gender"
+							value="${sessionScope.clientinfo.getC_id()}"> <input
+							class="form-control" type="text" id="fakeGender"
+							name="fakeGender" value="${sessionScope.clientinfo.getGender()}"
+							disabled="disabled">
 						<div class="invalid-feedback">성별을 선택해주세요.</div>
 					</div>
 					<div class="Email">
@@ -176,30 +170,6 @@ p {
 					</div>
 				</form>
 			</div>
-			<div id="menu2" class="container tab-pane fade">
-				<%-- 	<form action="<%=withFormTag%>" method="post">
-					<div class="Reservation_Date">
-						<div class="Reservation_Date">
-							<label for="Reservation_Date">예약 날짜</label><br /> <input
-								type="text" name="Reservation_Date" id="Reservation_Date"
-								class="form-control" value="${bean.Reservation_Date}"
-								disabled="disabled">
-						</div>
-						<hr />
-						<div class="R_Capacity">
-							<label for="R_Capacity">예약 인원</label><br /> <input type="text"
-								name="R_Capacity" id="R_Capacity" class="form-control"
-								value="${bean.R_Capacity}" disabled="disabled">
-						</div>
-						<div class="submit">
-							<button type="submit" class="btn btn-primary">수정 하기</button>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<button type="button" onclick="cancel()"
-								class="btn btn-secondary">취소</button>
-						</div>
-				</form> --%>
-			</div>
-
 		</div>
 		<script>
          window.addEventListener('load', () => {
