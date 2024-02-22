@@ -28,7 +28,7 @@ color: white;
 		<div class="row">
 			<div class="col-sm-2"></div>
 			<div class="col-sm-8">
-				<h2>[ ${bean.getU_id()} ]`s Dining List.</h2>
+				<h2>[ ${loginfo.getU_id()} ]`s Dining List.</h2>
 				<table class="table table-striped">
 					<thead>
 						<tr class="text">
@@ -37,6 +37,7 @@ color: white;
 							<th>예약 일자</th>
 							<th>인원 수</th>
 							<th>예약 취소</th>
+
 						</tr>
 					</thead>
 					<tbody>
@@ -51,7 +52,7 @@ color: white;
 								<td>${bean.getR_Capacity()}</td>
 								<!-- 여기서부터 해당 예약취소 커맨드 주고 콘트롤러 만들어서 삭제 할 수 있게... -->
 								<td class="baek" style="background-color: #ffca00;">
-									<c:if test="${sessionScope.loginfo.getU_id() == requestScope.bean.getU_id()}">
+									<c:if test="${sessionScope.loginfo.getU_id().equals(requestScope.loginfo.getU_id())}">
 										<a class="young" href="<%=notWithFormTag%>">예약 취소</a>
 									</c:if>
 								</td>
