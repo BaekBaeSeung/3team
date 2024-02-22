@@ -4,8 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dining.common.SuperClass;
-import com.dining.model.bean.Client;
-import com.dining.model.dao.ClientDao;
+import com.dining.model.bean.User;
+import com.dining.model.dao.UserDao;
 
 public class CustomerIdCheckController extends SuperClass{
 	@Override
@@ -14,8 +14,8 @@ public class CustomerIdCheckController extends SuperClass{
 		super.doGet(request, response);
 		
 		String U_id = request.getParameter("U_id") ;
-		ClientDao dao = new ClientDao() ;
-		Client bean = dao.getDataBean(U_id) ;
+		UserDao dao = new UserDao() ;
+		User bean = dao.getDataBean(U_id) ;
 		
 		String message = "" ;// 사용자에게 보여줄 메시지
 		
@@ -26,7 +26,7 @@ public class CustomerIdCheckController extends SuperClass{
 		}else { // 존재하는 회원
 			request.setAttribute("isRegister", false);
 			
-			if(bean.getC_id().equals("admin")){ // 관리자				 
+			if(bean.getU_id().equals("admin")){ // 관리자				 
 				message = "admin은 <font color='red'><b>사용 불가능</b></font>한 아이디입니다." ;
 				
 				request.setAttribute("plus_message", "<font color='blue'><b>관리자</b></font>를 위한 아이디입니다.");

@@ -14,12 +14,12 @@ public class UserDeleteDetailController extends SuperClass{
 		super.doGet(request, response);		
 				
 		String U_id = request.getParameter("U_id") ;
-		
+		System.out.println(request.getParameter("U_id"));
 		UserDao dao = new UserDao() ;
 		int cnt = -1 ;
 		
 		cnt = dao.deleteData(U_id) ;
-		
+		System.out.println("여기가 deleteData로 삭제 시키는 곳 UserDeleteDetailController : "+cnt);
 		// 세션 공간에 들어 있는 모든 정보를 무효화시킵니다.
 		
 		

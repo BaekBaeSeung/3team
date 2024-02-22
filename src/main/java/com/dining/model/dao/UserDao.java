@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dining.common.SuperClass;
 import com.dining.model.bean.User;
 import com.dining.utility.MyUtility;
 
@@ -104,24 +105,37 @@ public class UserDao extends SuperDao {
 	public int deleteData(String U_id) {
 		int cnt = -1;
 		String sql = "";
+		String sqlDeleteReservation = "";
+		
 		User bean = this.getDataBean(U_id);
-		String remark = MyUtility.getCurrentTime() + bean.getName() + "(아이디 : " + U_id + ")님이 탈퇴를 하였습니다.";
 
 		PreparedStatement pstmt = null;
-		conn = super.getConnection();
-
+		PreparedStatement pstmtReservation = null;
+		
+		System.out.println("다오다오다오다오다오다다오"+U_id);
 		try {
+			conn = super.getConnection();
 			conn.setAutoCommit(false);
-
+			
+			System.out.println("conn.setAutoCommit(false) 밑"+U_id);
 			// step03 : 회원 테이블 데이터를 삭제합니다.
 			sql = " delete from Customer where U_id = ? ";
+			sqlDeleteReservation = "DELETE FROM Reservation WHERE U_id = ?";
+			
+			pstmtReservation = conn.prepareStatement(sqlDeleteReservation);
 			pstmt = conn.prepareStatement(sql);
+			
+			pstmtReservation.setString(1, U_id);
 			pstmt.setString(1, U_id);
+			
+			pstmtReservation.executeUpdate();
 			cnt = pstmt.executeUpdate();
+			
 			if (pstmt != null) {
 				pstmt.close();
 			}
-
+		
+			System.out.println("conn.commit() 위"+U_id);
 			conn.commit();
 
 		} catch (SQLException e) {
@@ -139,6 +153,7 @@ public class UserDao extends SuperDao {
 			}
 		}
 		return cnt;
+		
 	}
 
 	public int insertData(User bean) {

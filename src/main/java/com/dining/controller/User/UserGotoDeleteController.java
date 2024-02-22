@@ -14,10 +14,12 @@ public class UserGotoDeleteController extends SuperClass {
 		super.doGet(request, response);
 
 		String U_id = request.getParameter("U_id");
+		System.out.println("UserGotoDeleteController 에서 U_id 찍어보는곳 2: " + U_id);
 
 		request.setAttribute("U_id", U_id);
 		
 		super.gotoPage(PREFIX + "customerDelete.jsp");
+								
 
 	}
 

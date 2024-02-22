@@ -48,7 +48,7 @@
                         </script>
                         
 						<li><a href="https://www.instagram.com/bbs_java/">SNS</a></li>
-						<c:choose>
+			 			<c:choose>
 							<c:when test="${sessionScope.loginfo.getU_id() != null}">
 								<li><a href="<%=notWithFormTag%>ReservationHistory&U_id=${sessionScope.loginfo.getU_id()}">RESERVATION</a></li>
 							</c:when>

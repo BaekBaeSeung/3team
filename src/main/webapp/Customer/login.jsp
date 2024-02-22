@@ -35,7 +35,7 @@
 												</div>
 												<div class="form-group mt-2">
 													<input type="password" name="Password" class="form-style"
-														placeholder="비밀번호를 입력하세요" id="Password" value="baek4861">
+														placeholder="비밀번호를 입력하세요" id="Password" value="DKSSUD12!@">
 												</div>
 												<button type="submit" class="btn mt-4">로그인</button>
 												<p class="mb-0 mt-4 text-center">
