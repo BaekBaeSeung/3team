@@ -270,20 +270,23 @@ h3>span {
 	</div>
 	<div class="checkbox container">
 		<input type="checkbox" id="agreeCheckbox"> <label
-			for="agreeCheckbox">안내 사항을 모두 확인 하셨으며, 탈퇴 약관에 동의합니다.</label>
-		<a class="btn btn-danger" onclick="submitForm()" href="<%=notWithFormTag%>CustomerDeleteDetail&U_id=${sessionScope.loginfo.getU_id()}">동의하고 회원 탈퇴하기</a>
+			for="agreeCheckbox">안내 사항을 모두 확인 하셨으며, 탈퇴 약관에 동의합니다.</label> <a
+			class="btn btn-danger" onclick="submitForm()"
+			href="#">동의하고
+			회원 탈퇴하기</a>
 	</div>
 	<script>
-        function submitForm() {
-            var agreeCheckbox = document.getElementById('agreeCheckbox');
-            if (agreeCheckbox.checked) {
-                // 동의한 경우에 대한 처리 (예: 다음 페이지로 이동)
-                alert('탈퇴 약관에 동의하셨습니다. 회원 탈퇴되었습니다. 감사합니다.');
-            } else {
-                alert('약관에 동의해야 합니다.');
-            }
-        }
-
+	    function submitForm() {
+	        var agreeCheckbox = document.getElementById('agreeCheckbox');
+	        if (agreeCheckbox.checked) {
+	            // 체크박스가 체크된 경우 탈퇴 처리를 진행합니다.
+	            alert('탈퇴 약관에 동의하셨습니다. 회원 탈퇴되었습니다. 감사합니다.');
+	            window.location.href = "<%=notWithFormTag%>CustomerDeleteDetail&U_id=${sessionScope.loginfo.getU_id()}";
+	        } else {
+	            // 체크박스가 체크되지 않은 경우 경고창을 표시합니다.
+	            alert('약관에 동의해야 합니다.');
+	        }
+   	 }
         // 스크롤 이벤트를 사용하여 스크롤 버튼의 표시 여부를 제어
         window.onscroll = function () {
             showScrollButton();
