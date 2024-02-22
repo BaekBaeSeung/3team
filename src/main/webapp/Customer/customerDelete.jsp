@@ -9,11 +9,6 @@
 <title>미식家 약관 동의</title>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
 <style>
 #accordion-resizer {
 	padding: 20px;
@@ -74,29 +69,22 @@ section:last-child {
 
 .checkbox.container {
 	display: block;
-	/* flex 영향을 받지 않도록 block으로 변경 */
 	text-align: center;
-	/* 내부 요소의 텍스트를 가운데 정렬 */
 	margin-top: 50px;
 }
 
 .checkbox.container label {
 	display: inline-block;
-	/* inline-block으로 변경하여 한 줄에 표시 */
 	margin-bottom: 10px;
-	/* label 아래 여백 추가 */
 }
 
-.checkbox.container button {
+.checkbox.container a {
 	display: block;
-	/* block 요소로 변경하여 다음 줄에 표시 */
 	margin-top: 20px;
-	/* 버튼 위 여백 추가 */
 	margin-left: auto;
-	/* 가운데 정렬을 위한 마진 설정 */
 	margin-right: auto;
-	/* 가운데 정렬을 위한 마진 설정 */
 	margin-bottom: 50px;
+	width: 200px;
 }
 
 input[type="checkbox"] {
@@ -283,7 +271,7 @@ h3>span {
 	<div class="checkbox container">
 		<input type="checkbox" id="agreeCheckbox"> <label
 			for="agreeCheckbox">안내 사항을 모두 확인 하셨으며, 탈퇴 약관에 동의합니다.</label>
-		<button onclick="submitForm()" action="<%=notWithFormTag%>CustomerDelete&id=${sessionScope.loginfo.U_id}">동의하고 회원 탈퇴하기</button>
+		<a class="btn btn-danger" onclick="submitForm()" href="<%=notWithFormTag%>CustomerDeleteDetail&U_id=${sessionScope.loginfo.getU_id()}">동의하고 회원 탈퇴하기</a>
 	</div>
 	<script>
         function submitForm() {

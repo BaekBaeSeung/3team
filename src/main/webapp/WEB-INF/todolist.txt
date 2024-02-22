@@ -5,7 +5,9 @@ CustomerLogin_MainPage=com.dining.controller.User.UserLoginController
 CustomerLogin=com.dining.controller.User.UserLoginController
 CustomerUpdate=com.dining.controller.User.UserUpdateController
 CustomerLogout=com.dining.controller.User.UserLogoutController
-#CustomerDelete=com.dining.controller.User.UserDeleteController
+CustomerDelete=com.dining.controller.User.UserDeleteController
+CustomerDeleteDetail=com.dining.controller.User.UserDeleteDetailController
+CustomerGotoDelete=com.dining.controller.User.UserGotoDeleteController
 # Client section
 ClientInsert=com.dining.controller.client.ClientInsertController
 ClientLogin_MainPage=com.dining.controller.client.ClientLoginController
