@@ -27,6 +27,7 @@ public class ClientUpdateController extends SuperClass {
 		request.setAttribute("bean", bean);
 
 		super.gotoPage(PREFIX + "clientMyPage.jsp");
+		
 	}
 
 	@Override
@@ -36,13 +37,13 @@ public class ClientUpdateController extends SuperClass {
 		ClientDao dao = new ClientDao();
 		Client bean = new Client();
 	
+		bean.setC_id(request.getParameter("C_id"));
 		bean.setPassword(request.getParameter("Password"));
 		bean.setName(request.getParameter("Name"));
 		bean.setGender(request.getParameter("Gender"));
 		bean.setEmail(request.getParameter("Email"));
 		bean.setBirthday(request.getParameter("Birthday"));
 		bean.setTelephone(request.getParameter("Telephone"));
-		bean.setC_id(request.getParameter("C_id"));
 		
 		int cnt = -1;
 		
@@ -52,7 +53,8 @@ public class ClientUpdateController extends SuperClass {
 			System.out.println("수정성공...");
 			new ClientInsertController().doGet(request, response);
 			
-		}else{ // 수정 실패
+		}else{ // 수정 실패\
+			System.out.println("수정실패...");
 			new ClientUpdateController().doGet(request, response); 
 		}
 	}

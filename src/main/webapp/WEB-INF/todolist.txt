@@ -8,16 +8,19 @@ CustomerLogout=com.dining.controller.User.UserLogoutController
 CustomerDelete=com.dining.controller.User.UserDeleteController
 CustomerDeleteDetail=com.dining.controller.User.UserDeleteDetailController
 CustomerGotoDelete=com.dining.controller.User.UserGotoDeleteController
+CustomerIdCheck=com.dining.controller.User.CustomerIdCheckController
 # Client section
 ClientInsert=com.dining.controller.client.ClientInsertController
 ClientLogin_MainPage=com.dining.controller.client.ClientLoginController
 ClientLogin=com.dining.controller.client.ClientLoginController
 ClientUpdate=com.dining.controller.client.ClientUpdateController
 ClientLogout=com.dining.controller.client.ClientLogoutController
+clientIdCheck=com.dining.controller.client.clientIdCheckController
 # Reservation section
 ReservationList=com.dining.controller.reservation.ReservationListController
 ReservationInsert=com.dining.controller.reservation.ReservationInsertController
 ReservationHistory=com.dining.controller.reservation.ReservationHistoryController
+ReservationHistoryDelete=com.dining.controller.reservation.ReservationHistoryDeleteController
 # Dining section
 #DiningList=com.dining.controller.dining.DiningListController
 #DiningInsert=com.dining.controller.dining.DiningInsertController

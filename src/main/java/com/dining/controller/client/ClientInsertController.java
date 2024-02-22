@@ -47,21 +47,8 @@ private final String PREFIX = "mainpage/";
 		bean.setBirthday(request.getParameter("Birthday"));
 		bean.setTelephone(request.getParameter("Telephone"));
 		
-		// 적립 포인트는 데이터 베이스 기본 값으로 대체하면 문제 없음
 		
-		// for checkbox control
-		/*
-		String hobby = "" ;
-		String[] hobbies = request.getParameterValues("hobby");
-		if(hobbies == null){
-			hobby = null ; // 디비에 null 값으로 채우기
-		}else{
-			for(int i=0;i<hobbies.length;i++){
-				hobby += hobbies[i] + "/" ;
-			}
-		}
-		bean.setHobby(hobby);
-		*/
+		
 		
 		int cnt = dao.insertData(bean);
 		

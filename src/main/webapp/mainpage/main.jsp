@@ -38,9 +38,24 @@
 							<c:if test="${clientinfo != null}">
 								<li><a href="<%=notWithFormTag%>ClientUpdate">MYPAGE</a></li>
 							</c:if>
-						<li><a href="#">WISH_LIST</a></li>
-						<li><a href="#">DINIG_LIST</a></li>
-						<li><a href="<%=notWithFormTag%>ReservationHistory&U_id=${sessionScope.loginfo.getU_id()}">RESERVATION</a></li>
+						<li><a href="#" onclick="weatherCheck()">WEATHER</a></li>
+						
+						<script>
+						function weatherCheck() {
+							var url = 'https://weather.naver.com/'
+                       	 	window.open(url, 'idCheck',"width=2000,height=950,top=200,left=550,location=yes") ;
+						}
+                        </script>
+                        
+						<li><a href="https://www.instagram.com/bbs_java/">SNS</a></li>
+						<c:choose>
+							<c:when test="${sessionScope.loginfo.getU_id() != null}">
+								<li><a href="<%=notWithFormTag%>ReservationHistory&U_id=${sessionScope.loginfo.getU_id()}">RESERVATION</a></li>
+							</c:when>
+							<c:when test="${sessionScope.loginfo.getU_id() == null}">
+								<li><a href="#">RESERVATION</a></li>
+							</c:when>
+						</c:choose>
 						<c:choose>
 							<c:when test="${loginfo != null}">
 								<li><a href="<%=notWithFormTag%>CustomerLogout">LOGOUT</a></li>

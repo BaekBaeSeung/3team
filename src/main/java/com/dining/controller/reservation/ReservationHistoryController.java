@@ -31,11 +31,12 @@ public class ReservationHistoryController extends SuperClass{
             if(reservationList.size()==0) {
                 String message = "예약 내역이 존재하지 않습니다. " ;
                 super.setAlertMessage(message); 
-                new ReservationListController().doGet(request, response);
+                super.gotoPage("reservation/reservationhistory.jsp");
 
             }else {
             	request.setAttribute("loginfo",bean);
                 request.setAttribute("reservationList",reservationList);
+                
                 super.gotoPage("reservation/reservationhistory.jsp");
                 
             }
