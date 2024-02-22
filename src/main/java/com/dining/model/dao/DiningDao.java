@@ -4,9 +4,73 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.dining.model.bean.Client;
 import com.dining.model.bean.Dining;
 
 public class DiningDao extends SuperDao {
+
+	public int insertData(Dining bean) {
+		System.out.println(bean);
+
+		String sql = " insert INTO Dining (D_no, C_id, Name, Address, Address_Detail, Category, Style1, Style2, Style3, Style4, Style5, Content, Opentime, Close_time, Break_time, Holiday, Phone, Parking_status, Amenities, Capacity, Notice, Image01, Image02, Image03, Image04) ";
+		sql += " values (Seq_D_no.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		PreparedStatement pstmt = null;
+		int cnt = -999999;
+
+		try {
+			super.conn = super.getConnection();
+			conn.setAutoCommit(false);
+
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, bean.getC_id());
+			pstmt.setString(2, bean.getName());
+			pstmt.setString(3, bean.getAddress());
+			pstmt.setString(4, bean.getAddress_Detail());
+			pstmt.setString(5, bean.getCategory());
+			pstmt.setString(6, bean.getStyle1());
+			pstmt.setString(7, bean.getStyle2());
+			pstmt.setString(8, bean.getStyle3());
+			pstmt.setString(9, bean.getStyle4());
+			pstmt.setString(10, bean.getStyle5());
+			pstmt.setString(11, bean.getContent());
+			pstmt.setString(12, bean.getOpentime());
+			pstmt.setString(13, bean.getClose_time());
+			pstmt.setString(14, bean.getBreak_time());
+			pstmt.setString(15, bean.getHoliday());
+			pstmt.setString(16, bean.getPhone());
+			pstmt.setString(17, bean.getParking_status());
+			pstmt.setString(18, bean.getAmenities());
+			pstmt.setInt(19, bean.getCapacity());
+			pstmt.setString(20, bean.getNotice());
+			pstmt.setString(21, bean.getImage01());
+			pstmt.setString(22, bean.getImage02());
+			pstmt.setString(23, bean.getImage03());
+			pstmt.setString(24, bean.getImage04());
+
+			cnt = pstmt.executeUpdate();
+			conn.commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		} finally {
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return cnt;
+	}
 
 	public Dining getDataBean(int D_no) {
 		String sql = " select * from Dining ";
@@ -20,11 +84,11 @@ public class DiningDao extends SuperDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, D_no);
-			
+
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				bean = this.resultSet2Bean(rs);
-				
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -52,7 +116,6 @@ public class DiningDao extends SuperDao {
 		try {
 			Dining bean = new Dining();
 
-			bean.setD_no(rs.getInt("D_no"));
 			bean.setC_id(rs.getString("C_id"));
 			bean.setName(rs.getString("Name"));
 			bean.setAddress(rs.getString("Address"));

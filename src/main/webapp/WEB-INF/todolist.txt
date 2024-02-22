@@ -23,4 +23,5 @@ ReservationHistory=com.dining.controller.reservation.ReservationHistoryControlle
 ReservationHistoryDelete=com.dining.controller.reservation.ReservationHistoryDeleteController
 # Dining section
 #DiningList=com.dining.controller.dining.DiningListController
-#DiningInsert=com.dining.controller.dining.DiningInsertController
+DiningInsert=com.dining.controller.dining.DiningInsertController
+DiningGotoInsert=com.dining.controller.dining.DiningGotoInsertController

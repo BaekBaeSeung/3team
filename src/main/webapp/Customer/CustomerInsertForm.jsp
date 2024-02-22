@@ -15,11 +15,7 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#Birth').datepicker({dateFormat:"yy/mm/dd"});
-	});
-</script>
+	
 <!-- <%-- 다음 주소 검색을 위한 추가 코드 --%> -->
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -47,7 +43,7 @@
 body {
 	background-image: url('/Dining/image/미식家.png');
 	background-size: cover;
-	background-attachment: fixed;;
+	background-attachment: fixed;
 }
 
 .input-form {
@@ -151,7 +147,7 @@ body {
 							<div class="invalid-feedback">전화번호를 입력해주세요.</div>
 							<br />
 							<div class="form-group">
-								<label for="Birth">생년월일</label> <input type="text"
+								<label for="Birth">생년월일</label> <input type="date"
 									class="form-control" placeholder="12/34/56" id="Birth" name="Birth" required>
 							</div>
 							<label for="Email">이메일</label> <input type="email"

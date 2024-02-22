@@ -15,11 +15,6 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#Birth').datepicker({dateFormat:"yy/mm/dd"});
-	});
-</script>
 <!-- <%-- 다음 주소 검색을 위한 추가 코드 --%> -->
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -47,7 +42,7 @@
 body {
 	background-image: url('/Dining/image/미식家.png');
 	background-size: cover;
-	background-attachment: fixed;;
+	background-attachment: fixed;
 }
 
 .input-form {
@@ -152,7 +147,7 @@ body {
 
 							<div class="form-group">
 								<label>생년월일</label><br /> <input class="form-control"
-									type="text" name="Birthday" id="Birthday">
+									type="date" name="Birthday" id="Birthday">
 							</div>
 							<div class="invalid-feedback">생일을 입력해주세요.</div>
 
