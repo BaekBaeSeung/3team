@@ -47,7 +47,7 @@
 body {
 	background-image: url('/Dining/image/미식家.png');
 	background-size: cover;
-	background-attachment: fixed;;
+	background-attachment: fixed;
 }
 
 .input-form {
@@ -98,7 +98,7 @@ body {
 						<div class="Email">
 							<label for="email">Email</label><br /> <input name="Email"
 								type="email" id="Email" class="form-control"
-								value="${sessionScope.clientinfo.getEmail()}" required>
+								value="${sessionScope.clientinfo.getEmail()}" readonly="readonly" required>
 						</div>
 						<br />
 						<div class="Birthday">
@@ -110,24 +110,18 @@ body {
 
 						<label for="Telephone">전화번호</label><br /> <input type="tel"
 							id="Telephone" name="Telephone"
-							pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="010-1234-5678"
+							placeholder="010-1234-5678"
 							class="form-control"
 							value="${sessionScope.clientinfo.getTelephone()}" required
 							readonly="readonly"> <br />
 					</div>
-					<button class="btn btn-primary btn-lg btn-block" type="submit">
-						수정하기</button>
+					<div class="submit">
+						<button type="submit" class="btn btn-primary">수정 하기</button>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="<%=notWithFormTag%>DiningGotoInsert&C_id=${sessionScope.clientinfo.getC_id()}" class="btn btn-secondary">다이닝 등록하러 가기</a>
+					</div>
 				</form>
 			</div>
-			<hr class="mb-4">
-
-		</div>
-	</div>
-	<footer class="my-3 text-center text-small">
-		<p class="mb-1">
-			<br />
-		</p>
-	</footer>
 	</div>
 
 	<script>
@@ -146,11 +140,6 @@ body {
          });
       }, false);
 
-      function cancel() {
-         // 취소 버튼 클릭 시 작업 수행
-         alert('수정이 취소되었습니다.');
-      }
-
       // 이전 정보를 불러와 입력 필드에 채우는 함수
       function loadPreviousInfo() {
          // 이전 정보가 로컬 스토리지에 저장되어 있다고 가정
@@ -159,6 +148,7 @@ body {
             document.getElementById('C_id').value = previousInfo.C_id;
             document.getElementById('Name').value = previousInfo.Name;
             document.getElementById('Gender').value = previousInfo.Gender;
+            document.getElementById('Email').value = previousInfo.Email;
             document.getElementById('Birthday').value = previousInfo.Birthday;
             document.getElementById('Telephone').value = previousInfo.Telephone;
 
@@ -167,10 +157,6 @@ body {
       // 페이지 로드 시 이전 정보 불러오기
       window.addEventListener('load', loadPreviousInfo);
 
-      function cancel() {
-         // 취소 버튼 클릭 시 작업 수행
-         alert('수정이 취소되었습니다.');
-      }
       </script>
 
 </body>

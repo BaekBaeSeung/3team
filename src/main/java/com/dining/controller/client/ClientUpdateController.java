@@ -37,13 +37,13 @@ public class ClientUpdateController extends SuperClass {
 		ClientDao dao = new ClientDao();
 		Client bean = new Client();
 	
-		bean.setC_id(request.getParameter("C_id"));
 		bean.setPassword(request.getParameter("Password"));
 		bean.setName(request.getParameter("Name"));
 		bean.setGender(request.getParameter("Gender"));
 		bean.setEmail(request.getParameter("Email"));
 		bean.setBirthday(request.getParameter("Birthday"));
 		bean.setTelephone(request.getParameter("Telephone"));
+		bean.setC_id(request.getParameter("C_id"));
 		
 		int cnt = -1;
 		

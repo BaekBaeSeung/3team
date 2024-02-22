@@ -43,7 +43,7 @@
 body {
 	background-image: url('/Dining/image/미식家.png');
 	background-size: cover;
-	background-attachment: fixed;;
+	background-attachment: fixed;
 }
 
 .input-form {
