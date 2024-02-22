@@ -325,7 +325,7 @@ input[type="text"] {
 						onsubmit="return validateForm()">
 						<input type="hidden" name="command" value="ReservationInsert">
 
-						<input type="hidden" name="U_id" id="U_id" value="bbs4861">
+						<input type="hidden" name="U_id" id="U_id" value="${sessionScope.loginfo.getU_id()}">
 						<input type="hidden" name="C_id" id="C_id" value="admin">
 
 						<div class="group-container text">

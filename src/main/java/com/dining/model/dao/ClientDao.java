@@ -15,7 +15,7 @@ public class ClientDao extends SuperDao {
 	public int updateData(Client bean) {
 		String sql = " update Client set Password=?, Name=?, Gender=?, Email=?, Birthday=?, Telephone=? ";
 		sql += " where C_id = ?";
-
+		
 		PreparedStatement pstmt = null;
 		int cnt = -9999999;
 
@@ -26,7 +26,10 @@ public class ClientDao extends SuperDao {
 
 			
 			pstmt.setString(1, bean.getPassword());
+			
+			
 			pstmt.setString(2, bean.getName());
+			System.out.println("132131231232131"+bean.getName());
 			pstmt.setString(3, bean.getGender());
 			pstmt.setString(4, bean.getEmail());
 			pstmt.setString(5, bean.getBirthday());
@@ -182,23 +185,7 @@ public class ClientDao extends SuperDao {
 		return bean;
 	}
 
-	/*
-	 * public List<User> getDataList02(){
-	 * 
-	 * 
-	 * List<User> dataList = new ArrayList<User>();
-	 * 
-	 * dataList.add(new User("kimho", "김호철", "abc123", "female", "2023/08/20", "미혼",
-	 * "music/art/sport/reading/", "마포", 100)); dataList.add(new User("park", "박혁신",
-	 * "abc123", "male", "2002/06/24", "미혼", "music/art/photo/cooking/", "용산",
-	 * 200)); dataList.add(new User("choi", "최만위", "abc123", "female", "2020/12/12",
-	 * "이혼", "travel/photo/cooking/", "강남", 300)); dataList.add(new User("kim",
-	 * "김동섭", "abc123", "male", "2023/08/20", "결혼", "music/art/photo/cooking/",
-	 * "마포", 400)); dataList.add(new User("lee", "이수돌", "abc123", "male",
-	 * "2023/08/20", "이혼", "music/art/sport/reading/", "서대문", 500));
-	 * 
-	 * return dataList ; }
-	 */
+	
 	public List<Client> getDataList() {
 		String sql = "select * from Client ";
 		PreparedStatement pstmt = null; // 문장 객체
@@ -246,7 +233,7 @@ public class ClientDao extends SuperDao {
 			bean.setName(rs.getString("Name"));
 			bean.setGender(rs.getString("Gender"));
 			bean.setEmail(rs.getString("Email"));
-			bean.setBirthday(rs.getString("Birthday"));
+			bean.setBirthday(String.valueOf(rs.getDate("Birthday")));
 			bean.setTelephone(rs.getString("Telephone"));
 			
 			return bean;

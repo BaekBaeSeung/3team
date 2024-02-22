@@ -43,6 +43,16 @@ public class UserInsertController extends SuperClass {
 		UserDao dao = new UserDao();
 		User bean = new User();
 		
+		/*
+U_id
+Password
+Name
+Nickname
+Phone
+Birth
+Email
+Address
+Address_Detail*/
 		bean.setU_id(request.getParameter("U_id"));
 		bean.setPassword(request.getParameter("Password"));	
 		bean.setName(request.getParameter("Name"));
@@ -67,9 +77,11 @@ public class UserInsertController extends SuperClass {
 		if(cnt == 1){ // 인서트 성공
 			// 로그인 컨트롤러의 doPost() 메소드를 호출하면 가입과 동시에 로그인하는 효과를 봅니다.
 			new UserLoginController().doPost(request, response); 
+			System.out.println("성공");
 			
 		}else{ // 인서트 실패
 			new UserInsertController().doGet(request, response); 
+			System.out.println("실패");
 		}
 	}
 }

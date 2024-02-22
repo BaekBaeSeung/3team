@@ -41,48 +41,77 @@
                 }
             }).open();
         }
+       
     </script>
 <style>
 body {
-	min-height: 100vh;
-	background: -webkit-gradient(linear, left bottom, right top, from(rgb(255, 255, 255)),
-		to(#1d466c));
-	background: -webkit-linear-gradient(bottom left, rgb(255, 255, 255) 0%,
-		#1d466c 100%);
-	background: -moz-linear-gradient(bottom left, rgb(255, 255, 255) 0%,
-		#1d466c 100%);
-	background: -o-linear-gradient(bottom left, rgb(255, 255, 255) 0%,
-		#1d466c 100%);
-	background: linear-gradient(to top right, rgb(255, 255, 255) 0%, #1d466c
-		100%);
+	background-image: url('/Dining/image/미식家.png');
+	background-size: cover;
+	background-attachment: fixed;;
 }
 
 .input-form {
-	max-width: 600px;
+	max-width: 500px;
 	margin-top: 100px;
 	padding: 30px;
-	background: #fff;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
+	background: rgba(255, 255, 255, 0.8); /* 폼 배경색을 조절할 수 있습니다 */
 	border-radius: 10px;
-	-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-	-moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+}
+
+.logo img {
+	width: 400px;
+	height: 300px;
+	opacity: 0;
 }
 </style>
 </head>
 <body>
+	<div class="logo">
+		<a href="/Dining/mainpage/main.jsp"> <img
+			src='/Dining/image/혼술메인.jpg'>
+		</a>
+	</div>
 	<div class="container">
 		<div class="input-form-backgroud row">
 			<div class="input-form col-md-12 mx-auto">
 				<h4 class="mb-3">일반 회원가입</h4>
-				<form class="validation-form" novalidate action="<%=withFormTag%>" method="post" name="myform">
+				<form class="validation-form" novalidate action="<%=withFormTag%>"
+					method="post" name="myform">
 					<input type="hidden" name="command" value="CustomerInsert">
+
 					<div class="row">
-						<div class="col-md-6 mb-3">
+						<div class="col-md-10 mb-3">
 							<label for="name">아이디</label> <input type="text"
 								class="form-control" id="U_id" name="U_id" placeholder="아이디"
 								value="" required>
+								<button type="button" value="아이디중복체크" onclick="idCheck();"
+								class="btn btn-primary" style="margin-top: 10px;">아이디
+								중복체크</button>
+							<div class="invalid-feedback">아이디를 입력해주세요.</div>
+							<script>
+                            function idCheck() {/* 아이디 중복 체크를 수행합니다. 
+                               var isRegister = $('#isRegister').val();
+                               console.log('isRegister=' + isRegister);
+                               / alert(isRegister); */
+
+                               var isRegister = $('#isRegister').val();
+                               var U_id = $('#U_id').val();
+                               if (U_id == '') {
+                                  alert('중복 체크를 위하여 id를 입력해 주셔야 합니다.');
+                                  $('#U_id').focus();
+                                  return;
+                            }
+                               
+                               var url = '<%=notWithFormTag%>CustomerIdCheck&U_id=' + U_id;
+                               window.open(url, 'idCheck',"width=400,height=180,top=200,left=550,location=yes") ;
+                            }  
+
+
+                              
+                           	   
+                            
+                             </script>
 							<div class="invalid-feedback">아이디을 입력해주세요.</div>
 							<br /> <label for="Password">비밀번호</label> <input type="password"
 								class="form-control" id="Password" name="Password"
@@ -104,6 +133,7 @@ body {
 					    alert('비밀번호가 일치합니다.');
 					  } else {
 					    alert('비밀번호가 일치하지 않습니다. 다시 확인해주세요.');
+					    event.preventDefault();
 					  }
 				}
 			  </script>
@@ -122,36 +152,29 @@ body {
 							<br />
 							<div class="form-group">
 								<label for="Birth">생년월일</label> <input type="text"
-									class="form-control" id="Birth" name="Birth" required>
+									class="form-control" placeholder="12/34/56" id="Birth" name="Birth" required>
 							</div>
+							<label for="Email">이메일</label> <input type="email"
+								class="form-control" id="Email" name="Email" placeholder="이메일"
+								required>
+							<div class="invalid-feedback">이메일을 입력해주세요.</div>
+							<br /> <label for="Address">주소</label> <input type="text"
+								class="form-control" id="Address" name="Address" value=""
+								onclick="openZipSearch();" placeholder="주소를 입력해주세요" required>
+							<div class="invalid-feedback">주소를 입력해주세요.</div>
+							<br /> <label for="Address_Detail">상세주소<span
+								class="text-muted"></span></label> <input type="text"
+								class="form-control" id="Address_Detail" name="Address_Detail"
+								placeholder="상세주소를 입력해주세요.">
+
 						</div>
-					</div>
-
-					<div class="mb-3">
-						<label for="Email">이메일</label> <input type="email"
-							class="form-control" id="Email" name="Email" placeholder="이메일"
-							required>
-						<div class="invalid-feedback">이메일을 입력해주세요.</div>
-					</div>
-
-					<div class="mb-3">
-						<label for="Address">주소</label> <input type="text"
-							class="form-control" id="Address" name="Address" value=""
-							onclick="openZipSearch();" placeholder="주소를 입력해주세요" required>
-						<div class="invalid-feedback">주소를 입력해주세요.</div>
-					</div>
-
-					<div class="mb-3">
-						<label for="Address_Detail">상세주소<span class="text-muted"></span></label>
-						<input type="text" class="form-control" id="Address_Detail"
-							name="Address_Detail" placeholder="상세주소를 입력해주세요.">
 					</div>
 
 					<div class="row">
 						<div class="col-md-8 mb-3">
 							<label for="root">선호하는 음식종류(필수아님)</label> <select
 								class="custom-select d-block w-100" id="root">
-								<option value="선택해주세요."></option>
+								<option value="선택해주세요.">---------------------------------------</option>
 								<option>한식</option>
 								<option>중식</option>
 								<option>일식</option>
@@ -173,20 +196,28 @@ body {
 			</p>
 		</footer>
 	</div>
+
 	<script>
     window.addEventListener('load', () => {
-      const forms = document.getElementsByClassName('validation-form');
+        const forms = document.getElementsByClassName('validation-form');
 
-      Array.prototype.filter.call(forms, (form) => {
-        form.addEventListener('submit', function (event) {
-          if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
+        Array.prototype.filter.call(forms, (form) => {
+            form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    const Password1 = document.getElementById('Password').value;
+                    const Password2 = document.getElementById('Password2').value;
+                    if (Password1 !== Password2) {
+                        event.preventDefault();
+                        alert('비밀번호가 일치하지 않습니다. 다시 확인해주세요.');
+                    }
+                }
 
-          form.classList.add('was-validated');
-        }, false);
-      });
+                form.classList.add('was-validated');
+            }, false);
+        });
     }, false);
   </script>
 

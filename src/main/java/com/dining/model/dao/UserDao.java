@@ -292,7 +292,7 @@ public class UserDao extends SuperDao {
 			bean.setName(rs.getString("Name"));
 			bean.setNickname(rs.getString("Nickname"));
 			bean.setPhone(rs.getString("Phone"));
-			bean.setBirth(rs.getString("Birth"));
+			bean.setBirth(String.valueOf(rs.getDate("Birth")));
 			bean.setEmail(rs.getString("Email"));
 			bean.setAddress(rs.getString("Address"));
 			bean.setAddress_Detail(rs.getString("Address_Detail"));
