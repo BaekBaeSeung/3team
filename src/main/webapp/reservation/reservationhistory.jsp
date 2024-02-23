@@ -32,6 +32,7 @@ span {
 					<thead>
 						<tr class="text">
 							<th>No.</th>
+							<th>다이닝 이름</th>
 							<th>예약 번호</th>
 							<th>예약 일자</th>
 							<th>인원 수</th>
@@ -46,6 +47,36 @@ span {
 							varStatus="loop">
 							<tr class="text">
 								<td>${loop.index + 1}</td>
+								<c:if test="${(loop.index + 1)%10 == 1}">
+									<td>광화문식당</td>
+								</c:if>
+								<c:if test="${(loop.index + 1)%10 == 2}">
+									<td>연남제비</td>
+								</c:if>
+								<c:if test="${(loop.index + 1)%10 == 3}">
+									<td>연남토마</td>
+								</c:if>
+								<c:if test="${(loop.index + 1)%10 == 4}">
+									<td>티원</td>
+								</c:if>
+								<c:if test="${(loop.index + 1)%10 == 5}">
+									<td>디라이프스타일키친</td>
+								</c:if>
+								<c:if test="${(loop.index + 1)%10 == 6}">
+									<td>스케쥴청담</td>
+								</c:if>
+								<c:if test="${(loop.index + 1)%10 == 7}">
+									<td>남산촛불1978</td>
+								</c:if>
+								<c:if test="${(loop.index + 1)%10 == 8}">
+									<td>미자식당</td>
+								</c:if>
+								<c:if test="${(loop.index + 1)%10 == 9}">
+									<td>사철국화</td>
+								</c:if>
+								<c:if test="${(loop.index + 1)%10 == 0}">
+									<td>송계옥</td>
+								</c:if>
 								<td>${bean.getReservation_no()}</td>
 								<td>${bean.getReservation_Date()}</td>
 								<td>${bean.getR_Capacity()}</td>

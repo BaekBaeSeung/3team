@@ -42,6 +42,7 @@
 						
 						<script>
 						function weatherCheck() {
+							
 							var url = 'https://weather.naver.com/'
                        	 	window.open(url, 'idCheck',"width=2000,height=950,top=200,left=550,location=yes") ;
 						}
@@ -53,7 +54,7 @@
 								<li><a href="<%=notWithFormTag%>ReservationHistory&U_id=${sessionScope.loginfo.getU_id()}">RESERVATION</a></li>
 							</c:when>
 							<c:when test="${sessionScope.loginfo.getU_id() == null}">
-								<li><a href="#">RESERVATION</a></li>
+							
 							</c:when>
 						</c:choose>
 						<c:choose>

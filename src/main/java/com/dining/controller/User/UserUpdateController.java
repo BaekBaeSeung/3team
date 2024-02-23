@@ -49,8 +49,10 @@ public class UserUpdateController extends SuperClass {
 		int cnt = -1;
 		
 		cnt = dao.updateData(bean) ;
-		System.out.println("안녕"); 
+		
 		if(cnt == 1){ // 수정 성공
+			String message = "짜란 회원 수정 성공!!" ;
+			super.setAlertMessage(message);
 			new UserInsertController().doGet(request, response); 
 				
 		}else{ // 수정 실패
